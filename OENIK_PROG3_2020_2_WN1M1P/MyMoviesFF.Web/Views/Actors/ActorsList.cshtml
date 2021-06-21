@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Actor>
+
+<h2>Actor List</h2>
+
+@if (Model.Count() == 0)
+{
+    <p>No Data</p>
+}
+else
+{
+
+    <table border="1">
+        <tr>
+            <th>@Html.DisplayNameFor(i => i.First().ActorName)</th>
+            <th>@Html.DisplayNameFor(i => i.First().Gender)</th>
+            <th>@Html.DisplayNameFor(i => i.First().Age)</th>
+            <th>@Html.DisplayNameFor(i => i.First().Country)</th>
+
+            <th>Datasheet</th>
+            <th>Delete</th>
+            <th>Modify</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(i => item.ActorName)</td>
+                <td>@Html.DisplayFor(i => item.Gender)</td>
+                <td>@Html.DisplayFor(i => item.Age)</td>
+                <td>@Html.DisplayFor(i => item.Country)</td>
+
+                <td>@Html.ActionLink("[SHOW]", "Details", new { id = item.ActorId })</td>
+                <td>@Html.ActionLink("[DEL]", "Remove", new { id = item.ActorId })</td>
+                <td>@Html.ActionLink("[EDIT]", "Edit", new { id = item.ActorId })</td>
+            </tr>
+        }
+    </table>
+}

@@ -1,0 +1,69 @@
+﻿<Window x:Class="MyMoviesWPF.UI.MovieEditorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ui="clr-namespace:MyMoviesWPF.UI"
+        xmlns:vm="clr-namespace:MyMoviesWPF.VM"       
+        xmlns:data="clr-namespace:MyMoviesFF.Data;assembly=MyMoviesFF.Data"
+        mc:Ignorable="d"
+        Title="MovieEditorWindow" Height="311" Width="745">
+
+    <Window.Resources>
+        <vm:MovieEditorViewModel x:Key="EVM"/>
+        <ui:AgeLimitToBrushConverter x:Key="AgeLimitToBrushConverter"/>
+
+        <DataTemplate x:Key="ActorTemp" DataType="{x:Type data:Actor }">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="{Binding Path=ActorName}"/>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="DirectorTemp" DataType="{x:Type data:Director }">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="{Binding Path=DirectorName}"/>
+            </StackPanel>
+        </DataTemplate>
+
+    </Window.Resources>
+    <Grid DataContext="{StaticResource EVM}" Margin="0,-13,0,13">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="386*"/>
+            <ColumnDefinition Width="267*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="Title" HorizontalAlignment="Left" Margin="10,34,0,0" VerticalAlignment="Top"/>
+        <Label Content="IMDB" HorizontalAlignment="Left" Margin="12,65,0,0" VerticalAlignment="Top"/>
+        <Label Content="AgeLimit" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top"/>
+        <Label Content="Genre" HorizontalAlignment="Left" Margin="10,127,0,0" VerticalAlignment="Top"/>
+
+        <TextBox HorizontalAlignment="Left" Margin="88,38,0,0" Text="{Binding Path=Movie.Title}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TabIndex="0"/>
+        <TextBox HorizontalAlignment="Left" Margin="88,69,0,0" Text="{Binding Path=Movie.IMDB}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TabIndex="1"/>
+
+
+
+        <Button Click="Ok_Click" Content="Ok" HorizontalAlignment="Left" Margin="10,222,0,0" VerticalAlignment="Top" Width="78"/>
+        <Button Click="Cancel_Click" Content="Cancel" HorizontalAlignment="Left" Margin="131,222,0,0" VerticalAlignment="Top" Width="77"/>
+        <TextBox HorizontalAlignment="Left" Margin="88,104,0,0" Text="{Binding Path= Movie.AgeLimit}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TabIndex="2"/>
+        <TextBox HorizontalAlignment="Left" Margin="88,131,0,0" Text="{Binding Path=Movie.Genre}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TabIndex="3"/>
+
+        <ListBox SelectedItem="{Binding Path=ActorCur}" ItemsSource="{Binding Path=Actors}"  ItemTemplate="{StaticResource ActorTemp}"  HorizontalAlignment="Left" Height="89" Margin="252,38,0,0" VerticalAlignment="Top" Width="169"/>
+        <ListBox SelectedItem="{Binding Path=DirectorCur}" ItemsSource="{Binding Path=Directors}" ItemTemplate="{StaticResource DirectorTemp}" HorizontalAlignment="Left" Height="89" Margin="252,163,0,0" VerticalAlignment="Top" Width="169"/>
+
+        <Label Content="Actors" HorizontalAlignment="Left" Margin="252,12,0,0" VerticalAlignment="Top"/>
+        <Label Content="Directors" HorizontalAlignment="Left" Margin="252,142,0,0" VerticalAlignment="Top"/>
+        <ListBox SelectedItem="{Binding Path=ActorA}" ItemsSource="{Binding Path=AllActors}" ItemTemplate="{StaticResource ActorTemp }" HorizontalAlignment="Right" Height="89" Margin="0,38,10,0" VerticalAlignment="Top" Width="169" Grid.Column="1"/>
+        <ListBox SelectedItem="{Binding Path=DirectorA}" ItemsSource="{Binding Path=AllDirectors}" ItemTemplate="{StaticResource DirectorTemp}" HorizontalAlignment="Right" Height="89" Margin="0,163,10,0" VerticalAlignment="Top" Width="169" Grid.Column="1"/>
+        <Label Content="Available Actors" HorizontalAlignment="Left" Margin="126,11,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Label Content="Available Directors" HorizontalAlignment="Left" Margin="126,141,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Button Command="{Binding Path=AddActorcmd}" Content="Add" Grid.Column="1" Margin="23,52,224,0" VerticalAlignment="Top"/>
+        <Button Command="{Binding Path=DelActorcmd}" Content="Remove" Grid.Column="1" Margin="23,90,224,0" VerticalAlignment="Top" RenderTransformOrigin="0.429,-0.399"/>
+        <Button Command="{Binding Path=AddDircmd}" Content="Add" Grid.Column="1" Margin="23,179,224,0" VerticalAlignment="Top"/>
+        <Button Command="{Binding Path=DelDircmd}" Content="Remove" Grid.Column="1" Margin="23,217,224,0" VerticalAlignment="Top" RenderTransformOrigin="0.429,-0.399"/>
+
+        <Label Content="Year" HorizontalAlignment="Left" Margin="10,159,0,0" VerticalAlignment="Top"/>
+        <TextBox Text="{Binding Path=Movie.Year}" HorizontalAlignment="Left" Margin="88,164,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TabIndex="4"/>
+
+
+    </Grid>
+</Window>

@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MyMoviesFF.ConsoleClient</name>
+    </assembly>
+    <members>
+        <member name="T:MyMoviesFF.ConsoleClient.Actor">
+            <summary>
+            Actor class, which will be converted into json.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.ConsoleClient.Actor.ActorId">
+            <summary>
+            Gets or sets the Actor's id.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.ConsoleClient.Actor.ActorName">
+            <summary>
+            Gets or sets the Actor's name.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.ConsoleClient.Actor.Gender">
+            <summary>
+            Gets or sets a value indicating whether the Actor is male or female.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.ConsoleClient.Actor.Age">
+            <summary>
+            Gets or sets the Actor's age.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.ConsoleClient.Actor.Country">
+            <summary>
+            Gets or sets the Actor's country.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.ConsoleClient.Actor.MovieCount">
+            <summary>
+            Gets or sets how movies has the actor's played.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.ConsoleClient.Actor.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:MyMoviesFF.ConsoleClient.Program">
+            <summary>
+            Program class.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.ConsoleClient.Program.Main">
+            <summary>
+            Main entry point.
+            </summary>
+        </member>
+    </members>
+</doc>

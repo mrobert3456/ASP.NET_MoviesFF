@@ -1,0 +1,12 @@
+﻿@model MyMoviesFF.Web.Models.ActorListViewModel
+@*@{
+        @ViewData["Title"]= "ActorIndex";
+    }*@
+
+@*<h2>Actor index</h2>*@
+
+<p style="color:red;">@TempData["editResult"]</p>
+
+@await Html.PartialAsync("ActorsEdit", Model.EditedActor)
+
+@await Html.PartialAsync("ActorsList", Model.ListOfActors)

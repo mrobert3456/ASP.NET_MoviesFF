@@ -1,0 +1,24 @@
+﻿<Window x:Class="MyMoviesFF.WpfClient.UI.EditorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyMoviesFF.WpfClient.UI"
+        xmlns:vm="clr-namespace:MyMoviesFF.WpfClient.VM"
+        mc:Ignorable="d"
+        Title="ActorEditor" Height="348" Width="399"
+        d:DataContext="{d:DesignInstance Type={x:Type vm:ActorVM}}">
+    <Grid>
+        <TextBox  HorizontalAlignment="Left" Margin="139,43,0,0" Text="{Binding Path=ActorName}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="139,148,0,0" Text="{Binding Path=Age}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="139,188,0,0" Text="{Binding Path=Country}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Name" HorizontalAlignment="Left" Margin="69,39,0,0" VerticalAlignment="Top"/>
+        <Label Content="Gender" HorizontalAlignment="Left" Margin="69,89,0,0" VerticalAlignment="Top"/>
+        <Label Content="Age" HorizontalAlignment="Left" Margin="69,144,0,0" VerticalAlignment="Top"/>
+        <Label Content="Country" HorizontalAlignment="Left" Margin="69,184,0,0" VerticalAlignment="Top"/>
+        <Button Click="OK_Click" Content="OK" HorizontalAlignment="Left" Margin="34,269,0,0" VerticalAlignment="Top" Height="38" Width="130"/>
+        <Button Click="Cancel_Click" Content="Cancel" HorizontalAlignment="Left" Margin="242,269,0,0" VerticalAlignment="Top" Height="38" Width="130"/>
+        <CheckBox IsChecked="{Binding Path=Gender}" Content="Tick if male, otherwise do not tick" HorizontalAlignment="Left" Margin="139,95,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

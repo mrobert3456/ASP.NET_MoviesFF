@@ -1,0 +1,308 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MyMoviesFF.Program</name>
+    </assembly>
+    <members>
+        <member name="T:MyMoviesFF.Program.Factory">
+            <summary>
+            Instanciates new classes.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Program.Factory.CreateMovieDbContext">
+            <summary>
+            Instanciate new MovieDbContext.
+            </summary>
+            <returns>Returns new MovieDbContext.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Program.Factory.CreateMovieRepository(MyMoviesFF.Data.MovieDbContext,MyMoviesFF.Repository.ActorRepository,MyMoviesFF.Repository.DirectorRepository)">
+            <summary>
+             Instanciate new MovieRepository.
+            </summary>
+            <param name="ctx">This parameter is the MovieDbContext class, which will be used by MovieRepository object.</param>
+            <param name="actorRepository">Repository of actor.</param>
+            <param name="directorRepository">Repository of director.</param>
+            <returns>Returns new MovieRepository.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Program.Factory.CreateActorRepository(MyMoviesFF.Data.MovieDbContext)">
+            <summary>
+             Instanciate new ActorRepository.
+            </summary>
+            <param name="ctx">This parameter is the MovieDbContext class, which will be used by ActorRepository object.</param>
+            <returns>Returns new ActorRepository.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Program.Factory.CreateDirectorRepository(MyMoviesFF.Data.MovieDbContext)">
+            <summary>
+             Instanciate new DirectorRepository.
+            </summary>
+            <param name="ctx">This parameter is the MovieDbContext class, which will be used by DirectorRepository object.</param>
+            <returns>Returns new DirectorRepository.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Program.Factory.CreateActingLogic(MyMoviesFF.Repository.MovieRepository,MyMoviesFF.Repository.ActorRepository,MyMoviesFF.Repository.MovieActorRepository)">
+            <summary>
+             Instanciate new ActingLogic.
+            </summary>
+            <param name="movierepo">Repository of movie.</param>
+            <param name="actorrepo">Repository of actor.</param>
+            <param name="movieActorRepo">Repository of movieactor.</param>
+            <returns>Returns new ActingLogic.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Program.Factory.CreateMovieDirectLogic(MyMoviesFF.Repository.MovieRepository,MyMoviesFF.Repository.DirectorRepository,MyMoviesFF.Repository.MovieDirectorRepository)">
+            <summary>
+            Instanciate new MovieDirectLogic.
+            </summary>
+            <param name="movierepo">Repository of movie.</param>
+            <param name="directorrepo">Repository of director.</param>
+            <param name="moviedirrepo">Repository of moviedirector.</param>
+            <returns>Returns new MovieDirectLogic.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Program.Factory.CreateMovieMakeLogic(MyMoviesFF.Repository.MovieRepository,MyMoviesFF.Repository.MovieActorRepository,MyMoviesFF.Repository.MovieDirectorRepository)">
+            <summary>
+            Instanciate new MovieMakeLogic.
+            </summary>
+            <param name="movierepo">Repository of movie.</param>
+            <param name="movieActor">Repository of movieactor.</param>
+            <param name="movieDirector">Repository of moviedirector.</param>
+            <returns>Returns new MovieMakeLogic.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Program.Factory.CreateMovieActorRepository(MyMoviesFF.Data.MovieDbContext,MyMoviesFF.Repository.ActorRepository,MyMoviesFF.Repository.MovieRepository)">
+            <summary>
+            Instanciate new MovieActorRepository.
+            </summary>
+            <param name="ctx">This parameter is the MovieDbContext class, which will be used by MovieActorRepository object.</param>
+            <param name="actorrepo">Repository of actor.</param>
+            <param name="movierepo">Repository of movie.</param>
+            <returns>Returns new MovieActorRepository.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Program.Factory.CreateMovieDirectorRepository(MyMoviesFF.Data.MovieDbContext,MyMoviesFF.Repository.DirectorRepository,MyMoviesFF.Repository.MovieRepository)">
+            <summary>
+            Instanciate new MovieDirectorRepository.
+            </summary>
+            <param name="ctx">This parameter is the MovieDbContext class, which will be used by MovieDirectorRepository object.</param>
+            <param name="directorRepo">Repository of director.</param>
+            <param name="movierepo">Repository of movie.</param>
+            <returns>Returns new MovieDirectorRepository.</returns>
+        </member>
+        <member name="T:MyMoviesFF.Program.MainProg">
+            <summary>
+            This is the main program.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Program.MainProg.Main">
+            <summary>
+            This is the main method, which is the entry point for the program.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Program.MainProg.ShowMenu(MyMoviesFF.Repository.DirectorRepository,MyMoviesFF.Repository.ActorRepository,MyMoviesFF.Repository.MovieRepository,MyMoviesFF.Logic.ActingLogic,MyMoviesFF.Logic.MovieDirectLogic,MyMoviesFF.Logic.MovieMakeLogic)">
+            <summary>
+            Shows the console menu.
+            </summary>
+            <param name="directorrepo">DirectorRepository object.</param>
+            <param name="actorrepo">ActorRepository object.</param>
+            <param name="movierepo">MovieRepository object.</param>
+            <param name="actingLogic">ActingLogic object.</param>
+            <param name="movieDirectLogic">MovieDirectLogic object.</param>
+            <param name="movieMakeLogic">MovieMakeLogic object.</param>
+        </member>
+        <member name="M:MyMoviesFF.Program.MainProg.ListAll(MyMoviesFF.Repository.MovieRepository,MyMoviesFF.Repository.DirectorRepository,MyMoviesFF.Repository.ActorRepository)">
+            <summary>
+            Lists all three table datas.
+            </summary>
+            <param name="movierepo">MovieRepository object.</param>
+            <param name="directorrepo">DirectorRepository object.</param>
+            <param name="actorrepo">ActorRepository object.</param>
+        </member>
+        <member name="M:MyMoviesFF.Program.MainProg.ListAllMovies(MyMoviesFF.Repository.MovieRepository)">
+            <summary>
+            Lists all movies.
+            </summary>
+            <param name="movierepo">MovieRepository object.</param>
+        </member>
+        <member name="M:MyMoviesFF.Program.MainProg.ListAllActors(MyMoviesFF.Repository.ActorRepository)">
+            <summary>
+             Lists all actors.
+            </summary>
+            <param name="actorrepo">ActorRepository object.</param>
+        </member>
+        <member name="M:MyMoviesFF.Program.MainProg.ListAllDirectors(MyMoviesFF.Repository.DirectorRepository)">
+            <summary>
+            Lists all directors.
+            </summary>
+            <param name="directorrepo">DirectorRepository object.</param>
+        </member>
+        <member name="M:MyMoviesFF.Program.MainProg.GetAVGActorAge(MyMoviesFF.Logic.ActingLogic)">
+            <summary>
+            Determine the avarage age among actors.
+            </summary>
+            <param name="actingLogic">ActorRepository object.</param>
+        </member>
+        <member name="M:MyMoviesFF.Program.MainProg.GetAVGDirectorAge(MyMoviesFF.Logic.MovieDirectLogic)">
+            <summary>
+            Determine the avarage age among directors.
+            </summary>
+            <param name="movieDirectLogic">MovieDirectLogic object.</param>
+        </member>
+        <member name="M:MyMoviesFF.Program.MainProg.GetDirectorsCountPerCountries(MyMoviesFF.Logic.MovieDirectLogic)">
+            <summary>
+            Gets how many directors living in every country stored in the database.
+            </summary>
+            <param name="movieDirectLogic">MovieDirectLogic object.</param>
+        </member>
+        <member name="M:MyMoviesFF.Program.MainProg.GetActorCountPerCountries(MyMoviesFF.Logic.ActingLogic)">
+            <summary>
+            Gets how many actors living in every country stored in the database.
+            </summary>
+            <param name="actingLogic">ActingLogic object.</param>
+        </member>
+        <member name="M:MyMoviesFF.Program.MainProg.GetDirectorsCountPerCountriesAsync(MyMoviesFF.Logic.MovieDirectLogic)">
+            <summary>
+            Calls the Async version of GetDirectorsCountPerCountries method.
+            </summary>
+            <param name="movieDirectLogic">MovieDirectLogic object.</param>
+        </member>
+        <member name="M:MyMoviesFF.Program.MainProg.GetActorCountPerCountriesAsync(MyMoviesFF.Logic.ActingLogic)">
+            <summary>
+            Calls the Async version of GetActorCountPerCountries method.
+            </summary>
+            <param name="actingLogic">ActingLogic object.</param>
+        </member>
+        <member name="M:MyMoviesFF.Program.MainProg.InsertNewActor(MyMoviesFF.Logic.ActingLogic)">
+            <summary>
+             Insert a new actor to the database.
+            </summary>
+            <param name="actingLogic">ActingLogic object.</param>
+        </member>
+        <member name="M:MyMoviesFF.Program.MainProg.InsertNewMovie(MyMoviesFF.Logic.ActingLogic)">
+            <summary>
+            Insert a new movie to the database.
+            </summary>
+            <param name="actingLogic">ActingLogic object.</param>
+        </member>
+        <member name="M:MyMoviesFF.Program.MainProg.InsertNewDirector(MyMoviesFF.Logic.MovieDirectLogic)">
+            <summary>
+            Insert a new director to the database.
+            </summary>
+            <param name="movieDirectLogic">MovieDirectLogic object.</param>
+        </member>
+        <member name="M:MyMoviesFF.Program.MainProg.RemoveMovie(MyMoviesFF.Logic.ActingLogic)">
+            <summary>
+            Removes a movie from the database.
+            </summary>
+            <param name="actingLogic">ActingLogic object.</param>
+        </member>
+        <member name="M:MyMoviesFF.Program.MainProg.RemoveActor(MyMoviesFF.Logic.ActingLogic)">
+            <summary>
+            Removes an actor from the database.
+            </summary>
+            <param name="actingLogic">ActingLogic object.</param>
+        </member>
+        <member name="M:MyMoviesFF.Program.MainProg.RemoveDirector(MyMoviesFF.Logic.MovieDirectLogic)">
+            <summary>
+            Removes a director from the database.
+            </summary>
+            <param name="movieDirectLogic">MovieDirectLogic object.</param>
+        </member>
+        <member name="M:MyMoviesFF.Program.MainProg.ChangeCountry(MyMoviesFF.Logic.MovieDirectLogic)">
+            <summary>
+            This method changes the birth country of the actor.
+            </summary>
+            <param name="movieDirectLogic">MovieDirectLogic object.</param>
+        </member>
+        <member name="M:MyMoviesFF.Program.MainProg.ChangeIMDB(MyMoviesFF.Logic.ActingLogic)">
+            <summary>
+            Changes the imdb score of a specified movie object.
+            </summary>
+            <param name="actingLogic">ActingLogic object.</param>
+        </member>
+        <member name="M:MyMoviesFF.Program.MainProg.ChangeAge(MyMoviesFF.Logic.ActingLogic)">
+            <summary>
+            This method changes the age of actor.
+            </summary>
+            <param name="actingLogic">ActingLogic object.</param>
+        </member>
+        <member name="M:MyMoviesFF.Program.MainProg.GetOneActor(MyMoviesFF.Logic.ActingLogic)">
+            <summary>
+            Gets one actor.
+            </summary>
+            <param name="actingLogic">ActingLogic object.</param>
+        </member>
+        <member name="M:MyMoviesFF.Program.MainProg.GetOneMovie(MyMoviesFF.Logic.ActingLogic)">
+            <summary>
+            Gets one movie.
+            </summary>
+            <param name="actingLogic">ActingLogic object.</param>
+        </member>
+        <member name="M:MyMoviesFF.Program.MainProg.GetOneDirector(MyMoviesFF.Logic.MovieDirectLogic)">
+            <summary>
+            Gets one specified director.
+            </summary>
+            <param name="movieDirectLogic">MovieDirectLogic object.</param>
+        </member>
+        <member name="M:MyMoviesFF.Program.MainProg.GetActorsPerMovies(MyMoviesFF.Logic.ActingLogic)">
+            <summary>
+            Gets the movies and the actors who played in them.
+            </summary>
+            <param name="actingLogic">ActingLogic object.</param>
+        </member>
+        <member name="M:MyMoviesFF.Program.MainProg.GetMoviesPerDirectors(MyMoviesFF.Logic.MovieDirectLogic)">
+            <summary>
+            Gets the directors and his/her movies.
+            </summary>
+            <param name="movieDirectLogic">MovieDirectLogic object.</param>
+        </member>
+        <member name="M:MyMoviesFF.Program.MainProg.GetActorsDirectorsPerMovies(MyMoviesFF.Logic.MovieMakeLogic)">
+            <summary>
+             Gets the movies and it's actors, and directors.
+            </summary>
+            <param name="movieMakeLogic">MovieMakeLogic object.</param>
+        </member>
+        <member name="M:MyMoviesFF.Program.MainProg.GetActorsPerMoviesAsync(MyMoviesFF.Logic.ActingLogic)">
+            <summary>
+            Calls the Async version of GetActorsPerMovies method.
+            </summary>
+            <param name="actingLogic">ActingLogic object.</param>
+        </member>
+        <member name="M:MyMoviesFF.Program.MainProg.GetMoviesPerDirectorsAsync(MyMoviesFF.Logic.MovieDirectLogic)">
+            <summary>
+            Calls the Async version of GetMoviesPerDirectors method.
+            </summary>
+            <param name="movieDirectLogic">MovieDirectLogic object.</param>
+        </member>
+        <member name="M:MyMoviesFF.Program.MainProg.GetActorsDirectorsPerMoviesAsync(MyMoviesFF.Logic.MovieMakeLogic)">
+            <summary>
+            Calls the Async version of GetActorsDirectorsPerMovies method.
+            </summary>
+            <param name="movieMakeLogic">MovieMakeLogic object.</param>
+        </member>
+        <member name="M:MyMoviesFF.Program.MainProg.AddActorToMovie(MyMoviesFF.Logic.MovieMakeLogic,MyMoviesFF.Repository.MovieRepository,MyMoviesFF.Repository.ActorRepository)">
+            <summary>
+            Add an actor to a film.
+            </summary>
+            <param name="movieMakeLogic">MovieMakeLogic object.</param>
+            <param name="movieRepository">MovieRepository object.</param>
+            <param name="actorRepository">ActorRepository object.</param>
+        </member>
+        <member name="M:MyMoviesFF.Program.MainProg.AddDirectorToMovie(MyMoviesFF.Logic.MovieMakeLogic,MyMoviesFF.Repository.MovieRepository,MyMoviesFF.Repository.DirectorRepository)">
+            <summary>
+            Add a director to a movie.
+            </summary>
+            <param name="movieMakeLogic">MovieMakeLogic object.</param>
+            <param name="movieRepository">MovieRepository object.</param>
+            <param name="directorRepository">DirectorRepository object.</param>
+        </member>
+        <member name="M:MyMoviesFF.Program.MainProg.RemoveActorFromMovie(MyMoviesFF.Logic.MovieMakeLogic,MyMoviesFF.Repository.MovieRepository)">
+            <summary>
+            Removes an actor from a movie.
+            </summary>
+            <param name="movieMakeLogic">MovieMakeLogic object.</param>
+            <param name="movieRepository">MovieRepository object.</param>
+        </member>
+        <member name="M:MyMoviesFF.Program.MainProg.RemoveDirectorFromMovie(MyMoviesFF.Logic.MovieMakeLogic,MyMoviesFF.Repository.MovieRepository)">
+            <summary>
+            Removes a director from a movie.
+            </summary>
+            <param name="movieMakeLogic">MovieMakeLogic object.</param>
+            <param name="movieRepository">MovieRepository object.</param>
+        </member>
+    </members>
+</doc>

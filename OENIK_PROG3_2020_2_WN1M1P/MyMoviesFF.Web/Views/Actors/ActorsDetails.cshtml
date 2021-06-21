@@ -1,0 +1,45 @@
+﻿@model MyMoviesFF.Web.Models.Actor
+@*@{
+        @ViewData["Title"] = "ActorsDetails";
+    }*@
+
+<h2>Datasheet of one Actor </h2>
+
+@Html.ActionLink("Back to the list", "Index")
+
+
+<table border="1">
+    <tr>
+        <td>@Html.DisplayNameFor(i => i.ActorId)</td>
+        <td>@Html.DisplayFor(i => i.ActorId)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(i => i.ActorName)</td>
+        <td>@Html.DisplayFor(i => i.ActorName)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(i => i.Gender)</td>
+        <td>@Html.DisplayFor(i => i.Gender)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(i => i.Age)</td>
+        <td>@Html.DisplayFor(i => i.Age)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(i => i.Country)</td>
+        <td>@Html.DisplayFor(i => i.Country)</td>
+    </tr>
+</table>
+
+<h2>Movies in database</h2>
+<table border="1">
+    @foreach (var item in Model.MovieActors)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(i => item.Movie.Title)
+            </td>
+        </tr>
+    }
+</table>
+

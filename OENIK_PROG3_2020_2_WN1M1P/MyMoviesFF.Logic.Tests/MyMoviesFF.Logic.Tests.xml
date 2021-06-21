@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MyMoviesFF.Logic.Tests</name>
+    </assembly>
+    <members>
+        <member name="T:MyMoviesFF.Logic.Tests.ActingLogicTests">
+            <summary>
+            Contains the ActingLogic method' tests.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Logic.Tests.ActingLogicTests.TestAddActor">
+            <summary>
+            Test the GetOneActor method from ActingLogic.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Logic.Tests.ActingLogicTests.TestGetAllMovies">
+            <summary>
+            Test the GetAllMovies method from ActingLogic.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Logic.Tests.ActingLogicTests.TestAVGActorAge">
+            <summary>
+             Test the AVGActorAge method from ActingLogic.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Logic.Tests.ActingLogicTests.TestGetActorCountPerCountries">
+            <summary>
+            Test the GetActorCountPerCountries method from ActingLogic.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Logic.Tests.ActingLogicTests.TestGetActorsPerMovies">
+            <summary>
+            Test the GetActorsPerMovies method from ActingLogic.
+            </summary>
+        </member>
+        <member name="T:MyMoviesFF.Logic.Tests.MovieDirectLogicTests">
+            <summary>
+            Contains MovieDirectLogic method's tests.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Logic.Tests.MovieDirectLogicTests.TestChangeIMDB">
+            <summary>
+            Test the ChangeIMDB method from MovieDirectLogic.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Logic.Tests.MovieDirectLogicTests.TestRemoveDirector">
+            <summary>
+            Test the RemoveDirector method from MovieDirectLogic.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Logic.Tests.MovieDirectLogicTests.TestGetOneDirector">
+            <summary>
+            Test the GetOneDirector method from MovieDirectLogic.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Logic.Tests.MovieDirectLogicTests.TestAVGDirectorAge">
+            <summary>
+             Test the AVGDirectorAge method from MovieDirectLogic.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Logic.Tests.MovieDirectLogicTests.TestGetDirectorCountPerCountries">
+            <summary>
+            Test the GetDirectorCountPerCountries method from MovieDirectLogic.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Logic.Tests.MovieDirectLogicTests.TestGetMoviesPerDirectors">
+            <summary>
+            Test the GetActorsPerMovies method from ActingLogic.
+            </summary>
+        </member>
+        <member name="T:MyMoviesFF.Logic.Tests.MovieMakeLogicTests">
+            <summary>
+            Contains MovieMakeLogic method's tests.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Logic.Tests.MovieMakeLogicTests.TestGetActorsDirectorPerMovies">
+            <summary>
+            Test the GetActorsDirectorPerMovies method in MovieMakeLogic.
+            </summary>
+        </member>
+    </members>
+</doc>

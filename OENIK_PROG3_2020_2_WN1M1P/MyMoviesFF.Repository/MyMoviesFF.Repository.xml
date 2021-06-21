@@ -1,0 +1,459 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MyMoviesFF.Repository</name>
+    </assembly>
+    <members>
+        <member name="T:MyMoviesFF.Repository.ActorRepository">
+            <summary>
+            This is the Repository class for Actor entity.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Repository.ActorRepository.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MyMoviesFF.Repository.ActorRepository"/> class.
+            </summary>
+            <param name="ctx">This parameter is the dbcontext class, which is passed to the base class.</param>
+        </member>
+        <member name="M:MyMoviesFF.Repository.ActorRepository.ChangeAge(System.Int32,System.Int32)">
+            <summary>
+            This method changes the age of actor.
+            </summary>
+            <param name="id">This is the actors id.</param>
+            <param name="newage">This is the age, which will be the new age of an actor.</param>
+        </member>
+        <member name="M:MyMoviesFF.Repository.ActorRepository.ChangeActor(System.Int32,System.String,System.Boolean,System.Int32,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MyMoviesFF.Repository.ActorRepository.GetOne(System.Int32)">
+            <summary>
+            Gets one specified Actor.
+            </summary>
+            <param name="id">This is the id, which indicates the actor.</param>
+            <returns> Returns a specified actor.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Repository.ActorRepository.Insert(MyMoviesFF.Data.Actor)">
+            <summary>
+            Insert a new actor to the database.
+            </summary>
+            <param name="entity">This is the actor, which should be added.</param>
+        </member>
+        <member name="M:MyMoviesFF.Repository.ActorRepository.Remove(MyMoviesFF.Data.Actor)">
+            <summary>
+            Removes an actor from the database.
+            </summary>
+            <param name="entity">Specifies which actor should be removed.</param>
+            <returns>Returns whether the actor was successfully removed or not from the database.</returns>
+        </member>
+        <member name="T:MyMoviesFF.Repository.BaseRepo`1">
+            <summary>
+            This is the abstract Repository class, which will be used by specified Repository classes.
+            </summary>
+            <typeparam name="T">Gerner T parameter.</typeparam>
+        </member>
+        <member name="F:MyMoviesFF.Repository.BaseRepo`1.ctx">
+            <summary>
+            Dbcontext field, which specifies the entity tables and it's relationships.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Repository.BaseRepo`1.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MyMoviesFF.Repository.BaseRepo`1"/> class.
+            </summary>
+            <param name="ctx">This parameter is the dbcontext class.</param>
+        </member>
+        <member name="M:MyMoviesFF.Repository.BaseRepo`1.GetAll">
+            <summary>
+             Gets all T type objects from an IQueryable collection.
+            </summary>
+            <returns>Returns an IQueryable collection.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Repository.BaseRepo`1.GetOne(System.Int32)">
+            <summary>
+            Gets one T type object.
+            </summary>
+            <param name="id">This is the objects id.</param>
+            <returns>Returns a specified object.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Repository.BaseRepo`1.Insert(`0)">
+            <summary>
+            Inserts a T type object to a collection.
+            </summary>
+            <param name="entity">The specified object, which should be inserted. </param>
+        </member>
+        <member name="M:MyMoviesFF.Repository.BaseRepo`1.Remove(`0)">
+            <summary>
+            Removes a T type object from a collection.
+            </summary>
+            <param name="entity">The specified object, which will be removed from a collection.</param>
+            <returns>Returns whether the deletion was successfull or not. </returns>
+        </member>
+        <member name="T:MyMoviesFF.Repository.ConnRepository`1">
+            <summary>
+            This is the abstract ConnRepository class, which will be used by specified connector Repository classes.
+            </summary>
+            <typeparam name="T">Gerner T parameter.</typeparam>
+        </member>
+        <member name="F:MyMoviesFF.Repository.ConnRepository`1.ctx">
+            <summary>
+            Dbcontext field, which specifies the entity tables and it's relationships.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Repository.ConnRepository`1.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MyMoviesFF.Repository.ConnRepository`1"/> class.
+            </summary>
+            <param name="ctx">This parameter is the dbcontext class.</param>
+        </member>
+        <member name="M:MyMoviesFF.Repository.ConnRepository`1.GetAll">
+            <inheritdoc/>
+        </member>
+        <member name="M:MyMoviesFF.Repository.ConnRepository`1.GetOne(System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MyMoviesFF.Repository.ConnRepository`1.Insert(`0)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MyMoviesFF.Repository.ConnRepository`1.Remove(`0)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MyMoviesFF.Repository.DirectorRepository">
+            <summary>
+            This is the Repository class for the directors.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Repository.DirectorRepository.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MyMoviesFF.Repository.DirectorRepository"/> class.
+            </summary>
+            <param name="ctx">This parameter is the dbcontext class, which is passed to the base class.</param>
+        </member>
+        <member name="M:MyMoviesFF.Repository.DirectorRepository.ChangeCountry(System.Int32,System.String)">
+            <summary>
+            This method changes the birth country of the actor.
+            </summary>
+            <param name="id">This is the directors id.</param>
+            <param name="newcountry">This is the birth country, which will be the new birth country of the director.</param>
+        </member>
+        <member name="M:MyMoviesFF.Repository.DirectorRepository.GetOne(System.Int32)">
+            <summary>
+            Gets one specified director.
+            </summary>
+            <param name="id">This is the id, which indicates the director.</param>
+            <returns> Returns a specified director.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Repository.DirectorRepository.Insert(MyMoviesFF.Data.Director)">
+            <summary>
+             Insert a new director to the database.
+            </summary>
+            <param name="entity">This is the director, which should be added.</param>
+        </member>
+        <member name="M:MyMoviesFF.Repository.DirectorRepository.Remove(MyMoviesFF.Data.Director)">
+            <summary>
+            Removes a director from the database.
+            </summary>
+            <param name="entity">Specifies which director should be removed.</param>
+            <returns>Returns whether the actor was successfully removed or not from the database.</returns>
+        </member>
+        <member name="T:MyMoviesFF.Repository.IActorRepository">
+            <summary>
+            This is the interface, which will be used by ActorRepository class.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Repository.IActorRepository.ChangeAge(System.Int32,System.Int32)">
+            <summary>
+            This method changes the age of actor.
+            </summary>
+            <param name="id">This is the actors id.</param>
+            <param name="newage">This is the age, which will be the new age of an actor.</param>
+        </member>
+        <member name="M:MyMoviesFF.Repository.IActorRepository.ChangeActor(System.Int32,System.String,System.Boolean,System.Int32,System.String)">
+            <summary>
+            Changes an Actor.
+            </summary>
+            <param name="id">Actor's id.</param>
+            <param name="name">Actor's name.</param>
+            <param name="gender">Actor's gender.</param>
+            <param name="age">Actor's age.</param>
+            <param name="country">Actor's country.</param>
+            <returns>Return whether the change was successfull or not.</returns>
+        </member>
+        <member name="T:MyMoviesFF.Repository.IConnRepository`1">
+            <summary>
+            This is the generic interface which will be used by specified connector IRepository interfaces.
+            </summary>
+            <typeparam name="T">Generic T parameter.</typeparam>
+        </member>
+        <member name="M:MyMoviesFF.Repository.IConnRepository`1.GetOne(System.Int32,System.Int32)">
+            <summary>
+            Gets one T type object.
+            </summary>
+            <param name="idone">This is the composite id's first part.</param>
+            <param name="idtwo">This is the composite id's second part.</param>
+            <returns>Returns a specified object.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Repository.IConnRepository`1.GetAll">
+            <summary>
+            Gets all T type objects from an IQueryable collection.
+            </summary>
+            <returns>Return an IQueryable collection.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Repository.IConnRepository`1.Insert(`0)">
+            <summary>
+            Inserts a T type object to a collection.
+            </summary>
+            <param name="entity">The specified object, which should be inserted. </param>
+        </member>
+        <member name="M:MyMoviesFF.Repository.IConnRepository`1.Remove(`0)">
+            <summary>
+            Removes a T type object from a collection.
+            </summary>
+            <param name="entity">The specified object, which will be removed from a collection.</param>
+            <returns>Returns whether the deletion was successfull or not. </returns>
+        </member>
+        <member name="T:MyMoviesFF.Repository.IDirectorRepository">
+            <summary>
+            This is the interface, which will be used by DirectorRepository class.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Repository.IDirectorRepository.ChangeCountry(System.Int32,System.String)">
+            <summary>
+            This method changes the birth country of the actor.
+            </summary>
+            <param name="id">This is the directors id.</param>
+            <param name="newcountry">This is the birth country, which will be the new birth country of the director.</param>
+        </member>
+        <member name="T:MyMoviesFF.Repository.IMovieActorRepository">
+            <summary>
+            This is the interface, which will be used by MovieActorRepository class.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Repository.IMovieActorRepository.AddActor(System.Int32,System.Int32)">
+            <summary>
+            Add an actor to a movie.
+            </summary>
+            <param name="movieid">This is the movie's id.</param>
+            <param name="actorid">This is the actor's id.</param>
+        </member>
+        <member name="M:MyMoviesFF.Repository.IMovieActorRepository.RemoveActor(System.Int32,System.Int32)">
+            <summary>
+            Removes an actor from a movie.
+            </summary>
+            <param name="movieid">This is the movie's id.</param>
+            <param name="actorid">This is the actor's id.</param>
+        </member>
+        <member name="T:MyMoviesFF.Repository.IMovieDirectorRepository">
+            <summary>
+            This is the interface, which will be used by MovieDirectorRepository class.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Repository.IMovieDirectorRepository.AddDirector(System.Int32,System.Int32)">
+            <summary>
+            Add a director to a movie.
+            </summary>
+            <param name="movieid">This is the movie's id.</param>
+            <param name="directorid">This is the director's id.</param>
+        </member>
+        <member name="M:MyMoviesFF.Repository.IMovieDirectorRepository.RemoveDirector(System.Int32,System.Int32)">
+            <summary>
+            Removes a director from a movie.
+            </summary>
+            <param name="movieid">This is the movie's id.</param>
+            <param name="directorid">This is the director's id.</param>
+        </member>
+        <member name="T:MyMoviesFF.Repository.IMovieRepository">
+            <summary>
+            This is the interface, which will be used by MovieRepository class.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Repository.IMovieRepository.ChangeIMDB(System.Int32,System.Double)">
+            <summary>
+             This method changes the imdb score of a movie.
+            </summary>
+            <param name="id">This is the movies id.</param>
+            <param name="newimdb">This is the imdb score, which will be the new imdb score of a movie.</param>
+        </member>
+        <member name="T:MyMoviesFF.Repository.IRepository`1">
+            <summary>
+            This is the generic interface which will be used by specified IRepository interfaces.
+            </summary>
+            <typeparam name="T">Generic T parameter.</typeparam>
+        </member>
+        <member name="M:MyMoviesFF.Repository.IRepository`1.GetOne(System.Int32)">
+            <summary>
+            Gets one T type object.
+            </summary>
+            <param name="id">This is the objects id.</param>
+            <returns>Returns a specified object.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Repository.IRepository`1.GetAll">
+            <summary>
+            Gets all T type objects from an IQueryable collection.
+            </summary>
+            <returns>Return an IQueryable collection.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Repository.IRepository`1.Insert(`0)">
+            <summary>
+            Inserts a T type object to a collection.
+            </summary>
+            <param name="entity">The specified object, which should be inserted. </param>
+        </member>
+        <member name="M:MyMoviesFF.Repository.IRepository`1.Remove(`0)">
+            <summary>
+            Removes a T type object from a collection.
+            </summary>
+            <param name="entity">The specified object, which will be removed from a collection.</param>
+            <returns>Returns whether the deletion was successfull or not. </returns>
+        </member>
+        <member name="T:MyMoviesFF.Repository.MovieActorRepository">
+            <summary>
+            This is the repository class for the connector entity between Movies and Actors.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Repository.MovieActorRepository.#ctor(Microsoft.EntityFrameworkCore.DbContext,MyMoviesFF.Repository.IActorRepository,MyMoviesFF.Repository.IMovieRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MyMoviesFF.Repository.MovieActorRepository"/> class.
+            </summary>
+            <param name="ctx">This parameter is the dbcontext class, which is passed to the base class.</param>
+            <param name="actorrepo">Repository of actor.</param>
+            <param name="movieRepo">Repository of movie.</param>
+        </member>
+        <member name="P:MyMoviesFF.Repository.MovieActorRepository.ActorRepo">
+            <summary>
+            Gets or sets the Actor Repository.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Repository.MovieActorRepository.MovieRepo">
+            <summary>
+            Gets or sets the Movie Repository.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Repository.MovieActorRepository.GetOne(System.Int32,System.Int32)">
+            <summary>
+            Gets one specified MovieActor data.
+            </summary>
+            <param name="idone">This is the composite id's first part, which indicates the MovieActor.</param>
+            <param name="idtwo">This is the composite id's second part, which indicates the MovieActor.</param>
+            <returns>Returns a specified MovieActor data.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Repository.MovieActorRepository.Insert(MyMoviesFF.Data.MovieActor)">
+            <summary>
+            Insert a new MovieActor data to the database.
+            </summary>
+            <param name="entity">This is the MovieActor data, which should be added.</param>
+        </member>
+        <member name="M:MyMoviesFF.Repository.MovieActorRepository.Remove(MyMoviesFF.Data.MovieActor)">
+            <summary>
+            Removes an MovieActor data from the database.
+            </summary>
+            <param name="entity">Specifies which MovieActor should be removed.</param>
+            <returns>Returns whether the MovieActor was successfully removed or not from the database.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Repository.MovieActorRepository.AddActor(System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MyMoviesFF.Repository.MovieActorRepository.RemoveActor(System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MyMoviesFF.Repository.MovieDirectorRepository">
+            <summary>
+            This is the repository class for the connector entity between Movies and Directors.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Repository.MovieDirectorRepository.#ctor(Microsoft.EntityFrameworkCore.DbContext,MyMoviesFF.Repository.IDirectorRepository,MyMoviesFF.Repository.IMovieRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MyMoviesFF.Repository.MovieDirectorRepository"/> class.
+            </summary>
+            <param name="ctx">This parameter is the dbcontext class, which is passed to the base class.</param>
+            <param name="directorRepo">Repository of director.</param>
+            <param name="movieRepo">Repository of movie.</param>
+        </member>
+        <member name="P:MyMoviesFF.Repository.MovieDirectorRepository.DirectorRepo">
+            <summary>
+            Gets or sets the Director repository.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Repository.MovieDirectorRepository.MovieRepo">
+            <summary>
+            Gets or sets the Movie Repository.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Repository.MovieDirectorRepository.GetOne(System.Int32,System.Int32)">
+            <summary>
+            Gets one specified MovieDirector data.
+            </summary>
+            <param name="idone">This is the composite id's first part, which indicates the MovieDirector.</param>
+            <param name="idtwo">This is the composite id's second part, which indicates the MovieDirector.</param>
+            <returns>Returns a specified MovieDirector data.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Repository.MovieDirectorRepository.Insert(MyMoviesFF.Data.MovieDirector)">
+            <summary>
+            Insert a new MovieDirector data to the database.
+            </summary>
+            <param name="entity">This is the MovieDirector data, which should be added.</param>
+        </member>
+        <member name="M:MyMoviesFF.Repository.MovieDirectorRepository.Remove(MyMoviesFF.Data.MovieDirector)">
+            <summary>
+             Removes an MovieDirector data from the database.
+            </summary>
+            <param name="entity">Specifies which MovieDirector should be removed.</param>
+            <returns>Returns whether the MovieDirector was successfully removed or not from the database.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Repository.MovieDirectorRepository.AddDirector(System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MyMoviesFF.Repository.MovieDirectorRepository.RemoveDirector(System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MyMoviesFF.Repository.MovieRepository">
+            <summary>
+            This is the Repository class for the movies.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Repository.MovieRepository.#ctor(Microsoft.EntityFrameworkCore.DbContext,MyMoviesFF.Repository.IActorRepository,MyMoviesFF.Repository.IDirectorRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MyMoviesFF.Repository.MovieRepository"/> class.
+            </summary>
+            <param name="ctx">This parameter is the dbcontext class, which is passed to the base class.</param>
+            <param name="actorRepository">Repository of actor.</param>
+            <param name="directorRepository">Repository of director.</param>
+        </member>
+        <member name="P:MyMoviesFF.Repository.MovieRepository.ActorRepo">
+            <summary>
+            Gets or sets the Actor repository.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Repository.MovieRepository.DirectorRepo">
+            <summary>
+            Gets or sets the Director repository.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Repository.MovieRepository.ChangeIMDB(System.Int32,System.Double)">
+            <summary>
+            This method changes the imdb score of a movie.
+            </summary>
+            <param name="id">This is the movies id.</param>
+            <param name="newimdb">This is the imdb score, which will be the new imdb score of a movie.</param>
+        </member>
+        <member name="M:MyMoviesFF.Repository.MovieRepository.GetOne(System.Int32)">
+            <summary>
+            Gets one specified movie.
+            </summary>
+            <param name="id">This is the id, which indicates the movie.</param>
+            <returns>Returns a specified movie.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Repository.MovieRepository.Insert(MyMoviesFF.Data.Movie)">
+            <summary>
+             Insert a new movie to the database.
+            </summary>
+            <param name="entity">This is the movie, which should be added.</param>
+        </member>
+        <member name="M:MyMoviesFF.Repository.MovieRepository.Remove(MyMoviesFF.Data.Movie)">
+            <summary>
+            Removes a movie from the database.
+            </summary>
+            <param name="entity">Specifies which movie should be removed.</param>
+            <returns>Returns whether the movie was successfully removed or not from the database.</returns>
+        </member>
+    </members>
+</doc>

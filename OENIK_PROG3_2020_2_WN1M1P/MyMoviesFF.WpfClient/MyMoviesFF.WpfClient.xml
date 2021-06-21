@@ -1,0 +1,276 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MyMoviesFF.WpfClient</name>
+    </assembly>
+    <members>
+        <member name="T:MyMoviesFF.WpfClient.App">
+            <summary>
+            Interaction logic for App.xaml.
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.WpfClient.App.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MyMoviesFF.WpfClient.App"/> class.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.WpfClient.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.WpfClient.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:MyMoviesFF.WpfClient.BL.IMainLogic">
+            <summary>
+            Contains the main logic's methods sytaxs.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.WpfClient.BL.IMainLogic.SendMessage(System.Boolean)">
+            <summary>
+            Sends the operation result.
+            </summary>
+            <param name="success">Determines whether the operation was successfull or not.</param>
+        </member>
+        <member name="M:MyMoviesFF.WpfClient.BL.IMainLogic.ApiGetActors">
+            <summary>
+            Gets the Actors from the Api.
+            </summary>
+            <returns>Returns a List of ActorVM.</returns>
+        </member>
+        <member name="M:MyMoviesFF.WpfClient.BL.IMainLogic.ApiDelActor(MyMoviesFF.WpfClient.VM.ActorVM)">
+            <summary>
+            Deletes an Actor.
+            </summary>
+            <param name="actor">Actor which will be deleted.</param>
+        </member>
+        <member name="M:MyMoviesFF.WpfClient.BL.IMainLogic.ApiEditActor(MyMoviesFF.WpfClient.VM.ActorVM,System.Boolean)">
+            <summary>
+            Edits an Actor.
+            </summary>
+            <param name="actor">ActorVM which will be edited.</param>
+            <param name="isEditing">Determines whether the actor is being edited or not.</param>
+            <returns>Returns a bool whether the edit was successfull or not.</returns>
+        </member>
+        <member name="M:MyMoviesFF.WpfClient.BL.IMainLogic.EditActor(MyMoviesFF.WpfClient.VM.ActorVM,System.Func{MyMoviesFF.WpfClient.VM.ActorVM,System.Boolean})">
+            <summary>
+            Edits an Actor.
+            </summary>
+            <param name="actor">Actor which will be edited.</param>
+            <param name="editor">Function which edits the actor.</param>
+        </member>
+        <member name="T:MyMoviesFF.WpfClient.BL.MainLogic">
+            <summary>
+            Implements IMainLogic interface.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.WpfClient.BL.MainLogic.ApiDelActor(MyMoviesFF.WpfClient.VM.ActorVM)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MyMoviesFF.WpfClient.BL.MainLogic.ApiGetActors">
+            <inheritdoc/>
+        </member>
+        <member name="M:MyMoviesFF.WpfClient.BL.MainLogic.EditActor(MyMoviesFF.WpfClient.VM.ActorVM,System.Func{MyMoviesFF.WpfClient.VM.ActorVM,System.Boolean})">
+            <inheritdoc/>
+        </member>
+        <member name="M:MyMoviesFF.WpfClient.BL.MainLogic.SendMessage(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MyMoviesFF.WpfClient.BL.MainLogic.ApiEditActor(MyMoviesFF.WpfClient.VM.ActorVM,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MyMoviesFF.WpfClient.BL.MainLogic.Dispose">
+            <summary>
+            Disposes Httpclient.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.WpfClient.BL.MainLogic.Dispose(System.Boolean)">
+            <summary>
+            Dispose Httpclient.
+            </summary>
+            <param name="disposing">Bool indicating whether disposal is happening or not.</param>
+        </member>
+        <member name="T:MyMoviesFF.WpfClient.Data.ActorFromApi">
+            <summary>
+            Responsible for Api interactions.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.WpfClient.Data.ActorFromApi.ActorId">
+            <summary>
+            Gets or sets the Actor's id.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.WpfClient.Data.ActorFromApi.ActorName">
+            <summary>
+            Gets or sets the Actor's name.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.WpfClient.Data.ActorFromApi.Gender">
+            <summary>
+            Gets or sets a value indicating whether the Actor is a male or a female.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.WpfClient.Data.ActorFromApi.Age">
+            <summary>
+            Gets or sets the Actor's age.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.WpfClient.Data.ActorFromApi.Country">
+            <summary>
+            Gets or sets the Actor's country.
+            </summary>
+        </member>
+        <member name="T:MyMoviesFF.WpfClient.MainWindow">
+            <summary>
+            Interaction logic for MainWindow.xaml.
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.WpfClient.MainWindow.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MyMoviesFF.WpfClient.MainWindow"/> class.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.WpfClient.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:MyMoviesFF.WpfClient.MyIoc">
+            <summary>
+            An Ioc class which inherits SimpleIoc, and IServiceLocator interface.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.WpfClient.MyIoc.Instance">
+            <summary>
+            Gets MyIoc instance.
+            </summary>
+        </member>
+        <member name="T:MyMoviesFF.WpfClient.UI.EditorWindow">
+            <summary>
+            Interaction logic for EditorWindow.xaml.
+            </summary>
+            <summary>
+            EditorWindow
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.WpfClient.UI.EditorWindow.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MyMoviesFF.WpfClient.UI.EditorWindow"/> class.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.WpfClient.UI.EditorWindow.#ctor(MyMoviesFF.WpfClient.VM.ActorVM)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MyMoviesFF.WpfClient.UI.EditorWindow"/> class.
+            </summary>
+            <param name="actor">Actor object.</param>
+        </member>
+        <member name="M:MyMoviesFF.WpfClient.UI.EditorWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:MyMoviesFF.WpfClient.VM.ActorVM">
+            <summary>
+            Actor's viewmodel.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.WpfClient.VM.ActorVM.ActorId">
+            <summary>
+            Gets or sets the Actor's id.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.WpfClient.VM.ActorVM.ActorName">
+            <summary>
+            Gets or sets the Actor's name.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.WpfClient.VM.ActorVM.Gender">
+            <summary>
+            Gets or sets a value indicating whether the Actor is a male or a female.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.WpfClient.VM.ActorVM.Age">
+            <summary>
+            Gets or sets the Actor's age.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.WpfClient.VM.ActorVM.Country">
+            <summary>
+            Gets or sets the Actor's country.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.WpfClient.VM.ActorVM.ConvertFromApi(MyMoviesFF.WpfClient.Data.ActorFromApi)">
+            <summary>
+            Converts ActorFromApi to ActorVM.
+            </summary>
+            <param name="actor">ActorFromApi object.</param>
+            <returns>Returns an ActorVM object.</returns>
+        </member>
+        <member name="M:MyMoviesFF.WpfClient.VM.ActorVM.CopyFrom(MyMoviesFF.WpfClient.VM.ActorVM)">
+            <summary>
+            Copy one ActorVM.
+            </summary>
+            <param name="actor">Other ActorVM.</param>
+        </member>
+        <member name="T:MyMoviesFF.WpfClient.VM.MainWM">
+            <summary>
+            Main viewmodel for the WPFclient.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.WpfClient.VM.MainWM.#ctor(MyMoviesFF.WpfClient.BL.IMainLogic)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MyMoviesFF.WpfClient.VM.MainWM"/> class.
+            </summary>
+            <param name="logic">IMainLogic implementation.</param>
+        </member>
+        <member name="M:MyMoviesFF.WpfClient.VM.MainWM.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MyMoviesFF.WpfClient.VM.MainWM"/> class.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.WpfClient.VM.MainWM.AllActors">
+            <summary>
+            Gets or sets the Actors collection.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.WpfClient.VM.MainWM.SelectedActor">
+            <summary>
+            Gets or sets the selected Actor.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.WpfClient.VM.MainWM.EditorFunc">
+            <summary>
+            Gets or sets the Function of the editor.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.WpfClient.VM.MainWM.AddCmd">
+            <summary>
+            Gets the Add command.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.WpfClient.VM.MainWM.DelCmd">
+            <summary>
+            Gets the delete command.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.WpfClient.VM.MainWM.ModCmd">
+            <summary>
+            Gets the Add command.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.WpfClient.VM.MainWM.LoadCmd">
+            <summary>
+            Gets the Add command.
+            </summary>
+        </member>
+    </members>
+</doc>

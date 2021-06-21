@@ -1,0 +1,28 @@
+﻿@model Actor
+
+<h2>Actor Edit</h2>
+
+@using (Html.BeginForm("Edit", "Actors")) //postként küldődik el
+{
+    @Html.ValidationSummary()
+
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(i => i.ActorId) // nem lehet szerkeszteni, rejtett adat
+
+    @Html.Hidden("editAction", ViewData["editAction"].ToString()) // adatfelvitel, és modosítas, nem szép
+
+    <div class="editor-label">@Html.LabelFor(i => i.ActorName)</div>
+    <div class="editor-field">@Html.EditorFor(i => i.ActorName)</div>
+    <br />
+    <div class="editor-label">@Html.LabelFor(i => i.Gender)</div>
+    <div class="editor-field"> Tick if male @Html.EditorFor(i => i.Gender)</div>
+    <br />
+    <div class="editor-label">@Html.LabelFor(i => i.Age)</div>
+    <div class="editor-field">@Html.EditorFor(i => i.Age)</div>
+
+    <div class="editor-label">@Html.LabelFor(i => i.Country)</div>
+    <div class="editor-field">@Html.EditorFor(i => i.Country)</div>
+
+    <input type="submit" value="SEND" />
+}

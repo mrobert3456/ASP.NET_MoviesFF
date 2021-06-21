@@ -1,0 +1,272 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MyMoviesFF.Data</name>
+    </assembly>
+    <members>
+        <member name="T:MyMoviesFF.Data.Actor">
+            <summary>
+            This is the entity of a actor.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Data.Actor.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MyMoviesFF.Data.Actor"/> class.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.Actor.ActorId">
+            <summary>
+            Gets or sets the id of the actor, which also the primariry key.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.Actor.AllData">
+            <summary>
+            Gets all datas of the object.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.Actor.ActorName">
+            <summary>
+            Gets or sets the name of the actor.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.Actor.Gender">
+            <summary>
+            Gets or sets a value indicating whether the actor is a man or a woman.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.Actor.Age">
+            <summary>
+            Gets or sets the age of the actor.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.Actor.MovieCount">
+            <summary>
+            Gets or sets how many movies were with the current actor.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.Actor.Country">
+            <summary>
+            Gets or sets the country in which the current actors was born.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.Actor.MovieActors">
+            <summary>
+            Gets or sets the connector entity between actors and movies.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Data.Actor.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MyMoviesFF.Data.Actor.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="T:MyMoviesFF.Data.Director">
+            <summary>
+            This is the entity of a director.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Data.Director.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MyMoviesFF.Data.Director"/> class.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.Director.AllData">
+            <summary>
+            Gets all datas of the object.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.Director.DirectorId">
+            <summary>
+            Gets or sets the id of the director, which is also the primary key.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.Director.DirectorName">
+            <summary>
+            Gets or sets the name of the director.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.Director.MovieCount">
+            <summary>
+            Gets or sets how many movies were directed by the current director.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.Director.Gender">
+            <summary>
+            Gets or sets a value indicating whether the actor is a man or a woman.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.Director.Country">
+            <summary>
+             Gets or sets the connector entity between actors and movies.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.Director.Age">
+            <summary>
+            Gets or sets how many movies were with the current actor.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.Director.MovieDirectors">
+            <summary>
+            Gets or sets the connector entity between directors and movies.
+            </summary>
+        </member>
+        <member name="T:MyMoviesFF.Data.Movie">
+            <summary>
+            This is the entity of a movie.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Data.Movie.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MyMoviesFF.Data.Movie"/> class.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.Movie.AllData">
+            <summary>
+            Gets all datas of the object.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.Movie.MovieId">
+            <summary>
+            Gets or sets the id of the movie, which is also the primary key.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.Movie.Title">
+            <summary>
+            Gets or sets the title of the movie.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.Movie.Year">
+            <summary>
+            Gets or sets the year in which the movie was released.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.Movie.Genre">
+            <summary>
+            Gets or sets the genre of the movie.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.Movie.IMDB">
+            <summary>
+            Gets or sets the imdb point of the movie.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.Movie.AgeLimit">
+            <summary>
+            Gets or sets the minimum age limit of the movie.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.Movie.MovieDirectors">
+            <summary>
+            Gets or sets the connector entity between directors and movies.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.Movie.MovieActors">
+            <summary>
+            Gets or sets the connector entity between actors and movies.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Data.Movie.CopyFrom(MyMoviesFF.Data.Movie)">
+            <summary>
+            Copies the movie in the paramter to this.
+            </summary>
+            <param name="other">Other movie, which will be copied to this movie.</param>
+        </member>
+        <member name="T:MyMoviesFF.Data.MovieActor">
+            <summary>
+            This is the connector entity between movies and actors.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.MovieActor.MovieId">
+            <summary>
+            Gets or sets the movie foreign key.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.MovieActor.Movie">
+            <summary>
+            Gets or sets the movie navigation property.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.MovieActor.ActorId">
+            <summary>
+            Gets or sets the actor foreign key.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.MovieActor.Actor">
+            <summary>
+            Gets or sets the actor navigation property.
+            </summary>
+        </member>
+        <member name="T:MyMoviesFF.Data.MovieDbContext">
+            <summary>
+            This is the class where the entity tables are declared, where the relationships are defined between the entity classes, and where the tables are filled with datas.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Data.MovieDbContext.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MyMoviesFF.Data.MovieDbContext"/> class.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.MovieDbContext.Movies">
+            <summary>
+            Gets or sets the movie entity table.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.MovieDbContext.Directors">
+            <summary>
+            Gets or sets the director entity table.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.MovieDbContext.Actors">
+            <summary>
+            Gets or sets the actor entity table.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.MovieDbContext.MovieActors">
+            <summary>
+            Gets or sets the connector entity table, which connects the movies and the actors.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.MovieDbContext.MovieDirectors">
+            <summary>
+            Gets or sets the connector entity table, which connect the movies and the directors.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Data.MovieDbContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+            <summary>
+            This method is used for the configuration of the sql server.
+            </summary>
+            <param name="optionsBuilder"> This parameter is for the initialization of the slq server.</param>
+        </member>
+        <member name="M:MyMoviesFF.Data.MovieDbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            This method is used for define the relationships of the entities, and for fill the tabels.
+            </summary>
+            <param name="modelBuilder">This parameter is for the realtionship definitions.</param>
+        </member>
+        <member name="T:MyMoviesFF.Data.MovieDirector">
+            <summary>
+            This is the connector entity between movies and directors.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.MovieDirector.MovieId">
+            <summary>
+            Gets or sets the movie foreign key.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.MovieDirector.Movie">
+            <summary>
+            Gets or sets the movie navigation property.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.MovieDirector.DirectorId">
+            <summary>
+            Gets or sets the director foreign key.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Data.MovieDirector.Director">
+            <summary>
+            Gets or sets the director navigation property.
+            </summary>
+        </member>
+    </members>
+</doc>

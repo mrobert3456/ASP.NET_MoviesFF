@@ -1,0 +1,268 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MyMoviesFF.Web</name>
+    </assembly>
+    <members>
+        <member name="T:MyMoviesFF.Web.Controllers.ActorsApiController">
+            <summary>
+            Api controller for Actors.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Web.Controllers.ActorsApiController.#ctor(MyMoviesFF.Logic.IActingLogic,AutoMapper.IMapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MyMoviesFF.Web.Controllers.ActorsApiController"/> class.
+            </summary>
+            <param name="actingLogic">IActtingLogic implementation.</param>
+            <param name="mapper">IMapper implementation.</param>
+        </member>
+        <member name="M:MyMoviesFF.Web.Controllers.ActorsApiController.GetAll">
+            <summary>
+            Gets all the actors.
+            </summary>
+            <returns>Returns an IEnumerable collection of actors.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Web.Controllers.ActorsApiController.DelOneActor(System.Int32)">
+            <summary>
+            Deletes one Actor.
+            </summary>
+            <param name="id">Actor's id.</param>
+            <returns>Returns an ApiResult.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Web.Controllers.ActorsApiController.AddOneActor(MyMoviesFF.Web.Models.Actor)">
+            <summary>
+            Adds one Actor.
+            </summary>
+            <param name="actor">Model.Actor.</param>
+            <returns>Returns an ApiResult.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Web.Controllers.ActorsApiController.ModOneActor(MyMoviesFF.Web.Models.Actor)">
+            <summary>
+            Modifies the selected actor.
+            </summary>
+            <param name="actor">Models.Actor which will be modified.</param>
+            <returns>Returns an ApiResult.</returns>
+        </member>
+        <member name="T:MyMoviesFF.Web.Controllers.ActorsController">
+            <summary>
+            Controls the Actor related features.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Web.Controllers.ActorsController.#ctor(MyMoviesFF.Logic.IActingLogic,AutoMapper.IMapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MyMoviesFF.Web.Controllers.ActorsController"/> class.
+            </summary>
+            <param name="actingLogic">IActtingLogic implementation.</param>
+            <param name="mapper">IMapper implementation.</param>
+        </member>
+        <member name="M:MyMoviesFF.Web.Controllers.ActorsController.Index">
+            <summary>
+            Shows the Index.
+            </summary>
+            <returns>Returns an IActionResult.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Web.Controllers.ActorsController.Details(System.Int32)">
+            <summary>
+            Shows one Actor's details.
+            </summary>
+            <param name="id">Actor's id.</param>
+            <returns>Returns an ActorsDetails IActionResult.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Web.Controllers.ActorsController.Remove(System.Int32)">
+            <summary>
+            Removes one Actor.
+            </summary>
+            <param name="id">Actor's id.</param>
+            <returns>Returns an EditResult IActionResult.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Web.Controllers.ActorsController.Edit(System.Int32)">
+            <summary>
+            Edits one Actor.
+            </summary>
+            <param name="id">Actor's id.</param>
+            <returns>Returns an EditAction IActionResult.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Web.Controllers.ActorsController.Edit(MyMoviesFF.Web.Models.Actor,System.String)">
+            <summary>
+            Edits or Adds an Actor.
+            </summary>
+            <param name="actor">Actor entity.</param>
+            <param name="editAction">Action string(AddNew or Edit).</param>
+            <returns>Returns an EditAction IActionResult.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Web.Controllers.ActorsController.GetActorModel(System.Int32)">
+            <summary>
+            Converts MyMoviesFF.Data.Actor to MyMoviesFF.Web.Model.Actor.
+            </summary>
+            <param name="id">Actor's id.</param>
+            <returns>Returns a Model.Actor.</returns>
+        </member>
+        <member name="T:MyMoviesFF.Web.Controllers.ApiResult">
+            <summary>
+            Defines a result of an Api action.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Web.Controllers.ApiResult.OperationResult">
+            <summary>
+            Gets or sets a value indicating whether the operation was successfull or not.
+            </summary>
+        </member>
+        <member name="T:MyMoviesFF.Web.Controllers.HomeController">
+            <summary>
+            HomeController class.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Web.Controllers.HomeController.#ctor(Microsoft.Extensions.Logging.ILogger{MyMoviesFF.Web.Controllers.HomeController})">
+            <summary>
+            Initializes a new instance of the <see cref="T:MyMoviesFF.Web.Controllers.HomeController"/> class.
+            </summary>
+            <param name="logger">ILogger implementation.</param>
+        </member>
+        <member name="M:MyMoviesFF.Web.Controllers.HomeController.Index">
+            <summary>
+            Shows the Index.
+            </summary>
+            <returns>Returns an IActionResult of the index.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Web.Controllers.HomeController.Privacy">
+            <summary>
+            Shows the Privacy.
+            </summary>
+            <returns>Returns an IActionResult of the privacy.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Web.Controllers.HomeController.Error">
+            <summary>
+            Shows th errors.
+            </summary>
+            <returns>Returns an IActionResult of the errors.</returns>
+        </member>
+        <member name="T:MyMoviesFF.Web.Models.Actor">
+            <summary>
+            Contains Actor's attributes, which will be used.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Web.Models.Actor.ActorId">
+            <summary>
+            Gets or sets the Actor's id.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Web.Models.Actor.ActorName">
+            <summary>
+            Gets or sets the Actor's name.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Web.Models.Actor.Gender">
+            <summary>
+            Gets or sets a value indicating whether the Actor is a male(1) or a female(0).
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Web.Models.Actor.Age">
+            <summary>
+            Gets or sets the Actor's age.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Web.Models.Actor.MovieCount">
+            <summary>
+            Gets or sets how movies has the actor's played.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Web.Models.Actor.MovieActors">
+            <summary>
+            Gets or sets the Actor's movies, which is in the database.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Web.Models.Actor.Country">
+            <summary>
+            Gets or sets the Actor's country.
+            </summary>
+        </member>
+        <member name="T:MyMoviesFF.Web.Models.ActorListViewModel">
+            <summary>
+            The ViewModel of the Actors.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Web.Models.ActorListViewModel.ListOfActors">
+            <summary>
+            Gets or sets the collection of Actors.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Web.Models.ActorListViewModel.EditedActor">
+            <summary>
+            Gets or sets the current Actor.
+            </summary>
+        </member>
+        <member name="T:MyMoviesFF.Web.Models.ErrorViewModel">
+            <summary>
+            ErrorViewModel class.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Web.Models.ErrorViewModel.RequestId">
+            <summary>
+            Gets or sets the requested id.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Web.Models.ErrorViewModel.ShowRequestId">
+            <summary>
+            Gets a value indicating whether the RequestId is null or not.
+            </summary>
+        </member>
+        <member name="T:MyMoviesFF.Web.Models.MapperFactory">
+            <summary>
+            Mapper which converts MyMoviesFF.Data.Actor to MyMoviesFF.Web.Model.Actor and back.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Web.Models.MapperFactory.CreateMapper">
+            <summary>
+            Converts MyMoviesFF.Data.Actor to MyMoviesFF.Web.Model.Actor and back.
+            </summary>
+            <returns>Returns an IMapper.</returns>
+        </member>
+        <member name="T:MyMoviesFF.Web.Program">
+            <summary>
+            Program class.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Web.Program.Main(System.String[])">
+            <summary>
+            The entry point.
+            </summary>
+            <param name="args">List of argumentums.</param>
+        </member>
+        <member name="M:MyMoviesFF.Web.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Creates a HostBuilder.
+            </summary>
+            <param name="args">>List of argumentums.</param>
+            <returns>Returns an IHostBuilder implementation.</returns>
+        </member>
+        <member name="T:MyMoviesFF.Web.Startup">
+            <summary>
+            Startup class.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Web.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MyMoviesFF.Web.Startup"/> class.
+            </summary>
+            <param name="configuration">IConfiguration implementation.</param>
+        </member>
+        <member name="P:MyMoviesFF.Web.Startup.Configuration">
+            <summary>
+            Gets the configuration.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Web.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds services to the container in runtime.
+            </summary>
+            <param name="services">IServiceCollection implementation.</param>
+        </member>
+        <member name="M:MyMoviesFF.Web.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Configures the HTTP request pipeline in runtime.
+            </summary>
+            <param name="app">IApplicationBuilder implementation.</param>
+            <param name="env">IWebHostEnvironment implementation.</param>
+        </member>
+    </members>
+</doc>

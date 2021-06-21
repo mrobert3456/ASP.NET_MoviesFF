@@ -1,0 +1,661 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MyMoviesFF.Logic</name>
+    </assembly>
+    <members>
+        <member name="T:MyMoviesFF.Logic.ActingLogic">
+            <summary>
+            Implements the crud and non-crud methods from IActingLogic interface.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Logic.ActingLogic.#ctor(MyMoviesFF.Repository.IMovieRepository,MyMoviesFF.Repository.IActorRepository,MyMoviesFF.Repository.IMovieActorRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MyMoviesFF.Logic.ActingLogic"/> class.
+            </summary>
+            <param name="movierepo">Repository of movie.</param>
+            <param name="actorrepo">Repository of actor.</param>
+            <param name="movieActorRepo">Repository of movieactor.</param>
+        </member>
+        <member name="P:MyMoviesFF.Logic.ActingLogic.ActorRepo">
+            <summary>
+            Gets or sets the Actor Repository.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Logic.ActingLogic.MovieActorRepo">
+            <summary>
+            Gets or sets the MovieActor Repository.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Logic.ActingLogic.MovieRepo">
+            <summary>
+            Gets or sets the Movie Repository.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Logic.ActingLogic.AVGActorAge">
+            <summary>
+            Determine the avarage age among actors.
+            </summary>
+            <returns>Returns a double of the avarage age among actors.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.ActingLogic.ChangeAge(System.Int32,System.Int32)">
+            <summary>
+            This method changes the age of actor.
+            </summary>
+            <param name="id">This is the actors id.</param>
+            <param name="newage">This is the age, which will be the new age of an actor.</param>
+        </member>
+        <member name="M:MyMoviesFF.Logic.ActingLogic.ChangeActor(System.Int32,System.String,System.Boolean,System.Int32,System.String)">
+            <summary>
+            Changes an Actor.
+            </summary>
+            <param name="id">Actor's id.</param>
+            <param name="name">Actor's name.</param>
+            <param name="gender">Actor's gender.</param>
+            <param name="age">Actor's age.</param>
+            <param name="country">Actor's country.</param>
+            <returns>Return whether the change was successfull or not.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.ActingLogic.GetActorCountPerCountries">
+            <summary>
+            Determine how many actors living per country.
+            </summary>
+            <returns>Returns a IList collection of ActorCountPerCountries.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.ActingLogic.GetActorCountPerCountriesAsync">
+            <summary>
+             Async version of GetActorCountPerCountries.
+            </summary>
+            <returns>Returns an Task IList collection of ActorCountPerCountries.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.ActingLogic.GetAllActors">
+            <summary>
+            Gets all actors from the database.
+            </summary>
+            <returns>Returns an IList collection of actors.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.ActingLogic.GetOneActor(System.Int32)">
+            <summary>
+            Gets one actor.
+            </summary>
+            <param name="id">Specifies the actor id.</param>
+            <returns>Returns an actor object.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.ActingLogic.InsertNewActor(System.String,System.Boolean,System.Int32,System.Int32,System.String)">
+            <summary>
+             Insert a new actor to the database.
+            </summary>
+            <param name="actorname">Actor's name.</param>
+            <param name="gender">Actor's gender.</param>
+            <param name="age">Actor's age.</param>
+            <param name="moviecount">How many movies had the actor.</param>
+            <param name="country">Actor's birthplace.</param>
+        </member>
+        <member name="M:MyMoviesFF.Logic.ActingLogic.RemoveActor(MyMoviesFF.Data.Actor)">
+            <summary>
+            Removes an actor from the database.
+            </summary>
+            <param name="entity">Specifies which actor should be removed.</param>
+            <returns>Returns a bool whether the actor was successfully removed or not from the database.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.ActingLogic.GetActorsPerMovies">
+            <summary>
+            Gets the movies and the actors who played in them.
+            </summary>
+            <returns>IList collection of ActorsPerMovies.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.ActingLogic.GetActorsPerMoviesAsync">
+            <summary>
+            Async version of GetActorsPerMovies method.
+            </summary>
+            <returns>Returns a Task IList collection of ActorsPerMovies.</returns>
+        </member>
+        <member name="T:MyMoviesFF.Logic.ActorCountPerCountries">
+            <summary>
+            This ActorCountPerCountries class is used for to store the statistics of how many actors living per country.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Logic.ActorCountPerCountries.Country">
+            <summary>
+            Gets or sets the name of the country.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Logic.ActorCountPerCountries.Count">
+            <summary>
+            Gets or sets how many actor living in a specified country.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Logic.ActorCountPerCountries.ToString">
+            <summary>
+            Returns how many actors living in a specified country.
+            </summary>
+            <returns>Returns a string of a country and count property.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.ActorCountPerCountries.Equals(System.Object)">
+            <summary>
+            Determine whether two ActorCountPerCountries are the same or not.
+            </summary>
+            <param name="obj">Indicates the ActorCountPerCountries object, which will be compared to the caller object.</param>
+            <returns>Returns a bool whether two ActorCountPerCountries are the same or not.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.ActorCountPerCountries.GetHashCode">
+            <summary>
+            Determines the hash code of the ActorCountPerCountries object.
+            </summary>
+            <returns>Returns a hash code of the ActorCountPerCountries object.</returns>
+        </member>
+        <member name="T:MyMoviesFF.Logic.ActorsDirectorsPerMovies">
+            <summary>
+            Stores a movie and it's directors, and actors.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Logic.ActorsDirectorsPerMovies.Title">
+            <summary>
+            Gets or sets the title of the movie.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Logic.ActorsDirectorsPerMovies.Actors">
+            <summary>
+            Gets or sets the actors who played in the movie.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Logic.ActorsDirectorsPerMovies.Directors">
+            <summary>
+            Gets or sets the directors who directed the movie.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Logic.ActorsDirectorsPerMovies.ToString">
+            <summary>
+            Movie and it's directors, and actors.
+            </summary>
+            <returns>Returns a string of a movie and it's actor's and director's name.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.ActorsDirectorsPerMovies.Equals(System.Object)">
+            <summary>
+            Determine whether a two ActorsDirectorsPerMovies object is equal or not.
+            </summary>
+            <param name="obj">Indicates the ActorsDirectorsPerMovies object, which will be compared to the caller object.</param>
+            <returns>Returns a bool whether two ActorsDirectorsPerMovies are the same or not.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.ActorsDirectorsPerMovies.GetHashCode">
+            <summary>
+            Determines the hash code of the ActorsDirectorsPerMovies object.
+            </summary>
+            <returns>Returns a hash code of the ActorsDirectorsPerMovies object.</returns>
+        </member>
+        <member name="T:MyMoviesFF.Logic.ActorsPerMovies">
+            <summary>
+            Stores the movies and it's actors.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Logic.ActorsPerMovies.Title">
+            <summary>
+            Gets or sets the title of the movie.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Logic.ActorsPerMovies.Actors">
+            <summary>
+            Gets or sets the actors who played in the movie.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Logic.ActorsPerMovies.ToString">
+            <summary>
+            Movie and actor datas.
+            </summary>
+            <returns>Returns a string of a movie and it's actor's name.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.ActorsPerMovies.Equals(System.Object)">
+            <summary>
+            Determine whether a two ActorsPerMovies object is equal or not.
+            </summary>
+            <param name="obj">Indicates the ActorsPerMovies object, which will be compared to the caller object.</param>
+            <returns>Returns a bool whether two ActorsPerMovies are the same or not.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.ActorsPerMovies.GetHashCode">
+            <summary>
+            Determines the hash code of the ActorsPerMovies object.
+            </summary>
+            <returns>Returns a hash code of the ActorsPerMovies object.</returns>
+        </member>
+        <member name="T:MyMoviesFF.Logic.DirectorsCountPerCountries">
+            <summary>
+             This DirectorsCountPerCountries class is used for to store the statistics of how many directors living per country.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Logic.DirectorsCountPerCountries.Country">
+            <summary>
+            Gets or sets the name of the country.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Logic.DirectorsCountPerCountries.Count">
+            <summary>
+            Gets or sets how many director living in a specified country.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Logic.DirectorsCountPerCountries.ToString">
+            <summary>
+            Returns how many directors living in a specified country.
+            </summary>
+            <returns>Returns a string of a country and count property.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.DirectorsCountPerCountries.Equals(System.Object)">
+            <summary>
+            Determine whether two DirectorsCountPerCountries are the same or not.
+            </summary>
+            <param name="obj">Indicates the DirectorsCountPerCountries object, which will be compared to the caller object.</param>
+            <returns>Returns a bool whether two DirectorsCountPerCountries are the same or not.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.DirectorsCountPerCountries.GetHashCode">
+            <summary>
+            Determines the hash code of the DirectorsCountPerCountries object.
+            </summary>
+            <returns>Returns a hash code of the DirectorsCountPerCountries object.</returns>
+        </member>
+        <member name="T:MyMoviesFF.Logic.IActingLogic">
+            <summary>
+            Describe the logic between actors and movies.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Logic.IActingLogic.GetOneActor(System.Int32)">
+            <summary>
+            Gets one actor.
+            </summary>
+            <param name="id">Specifies the actor id.</param>
+            <returns>Returns an actor object.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.IActingLogic.GetAllActors">
+            <summary>
+            Gets all actors from the database.
+            </summary>
+            <returns>Returns an IList collection of actors.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.IActingLogic.ChangeAge(System.Int32,System.Int32)">
+            <summary>
+            Changes the age of a specified actor object.
+            </summary>
+            <param name="id">Specifies the actor object.</param>
+            <param name="newage">This is the age, which will be the new age of an actor.</param>
+        </member>
+        <member name="M:MyMoviesFF.Logic.IActingLogic.ChangeActor(System.Int32,System.String,System.Boolean,System.Int32,System.String)">
+            <summary>
+            Changes an Actor.
+            </summary>
+            <param name="id">Actor's id.</param>
+            <param name="name">Actor's name.</param>
+            <param name="gender">Actor's gender.</param>
+            <param name="age">Actor's age.</param>
+            <param name="country">Actor's country.</param>
+            <returns>Return whether the change was successfull or not.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.IActingLogic.InsertNewActor(System.String,System.Boolean,System.Int32,System.Int32,System.String)">
+            <summary>
+             Insert a new actor to the database.
+            </summary>
+            <param name="actorname">Actor's name.</param>
+            <param name="gender">Actor's gender.</param>
+            <param name="age">Actor's age.</param>
+            <param name="moviecount">How many movies had the actor.</param>
+            <param name="country">Actor's birthplace.</param>
+        </member>
+        <member name="M:MyMoviesFF.Logic.IActingLogic.RemoveActor(MyMoviesFF.Data.Actor)">
+            <summary>
+            Removes an actor from the database.
+            </summary>
+            <param name="entity">Specifies which actor should be removed.</param>
+            <returns>Returns whether the actor was successfully removed or not from the database.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.IActingLogic.AVGActorAge">
+            <summary>
+            Calculate the avarage age of the actors.
+            </summary>
+            <returns>Returns a double variable, which will be the avarage age of the actors.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.IActingLogic.GetActorCountPerCountries">
+            <summary>
+            Gets how many actors living in every country stored in the database.
+            </summary>
+            <returns>Return an ActorCountPerCountries collection of the statistic.</returns>
+        </member>
+        <member name="T:MyMoviesFF.Logic.IMovieDirectLogic">
+            <summary>
+            Describe the logic between movies and directors.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Logic.IMovieDirectLogic.GetOneDirector(System.Int32)">
+            <summary>
+            Gets one specified director.
+            </summary>
+            <param name="id">This is the id, which indicates the director.</param>
+            <returns> Returns a specified director.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.IMovieDirectLogic.GetAllDirectors">
+            <summary>
+            Gets all directors from the database.
+            </summary>
+            <returns>Returns an IList collection of directors.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.IMovieDirectLogic.ChangeCountry(System.Int32,System.String)">
+            <summary>
+            This method changes the birth country of the actor.
+            </summary>
+            <param name="id">This is the directors id.</param>
+            <param name="newcountry">This is the birth country, which will be the new birth country of the director.</param>
+        </member>
+        <member name="M:MyMoviesFF.Logic.IMovieDirectLogic.InsertNewDirector(System.String,System.Int32,System.Boolean,System.String,System.Int32)">
+            <summary>
+            Insert a new director to the database.
+            </summary>
+            <param name="directorName">Director name.</param>
+            <param name="movieCount">How many movies were directed by this director.</param>
+            <param name="gender">Director's gender.</param>
+            <param name="country">Director's birthplace.</param>
+            <param name="age">Director's age.</param>
+        </member>
+        <member name="M:MyMoviesFF.Logic.IMovieDirectLogic.RemoveDirector(MyMoviesFF.Data.Director)">
+            <summary>
+            Removes a director from the database.
+            </summary>
+            <param name="entity">Specifies which director should be removed.</param>
+            <returns>Returns whether the actor was successfully removed or not from the database.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.IMovieDirectLogic.AVGDirectorAge">
+            <summary>
+            Calculate the avarage age of the directors.
+            </summary>
+            <returns>Returns a double variable, which will be the avarage age of the directors.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.IMovieDirectLogic.GetDirectorCountPerCountries">
+            <summary>
+            Gets how many directors living in every country stored in the database.
+            </summary>
+            <returns>Return an DirectorsCountPerCountries collection of the statistic.</returns>
+        </member>
+        <member name="T:MyMoviesFF.Logic.IMovieMakeLogic">
+            <summary>
+            Describe the important elements in making a movie.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Logic.IMovieMakeLogic.AddActor(System.Int32,System.Int32)">
+            <summary>
+            Add an actor to a movie.
+            </summary>
+            <param name="movieid">This is the movie's id.</param>
+            <param name="actorid">This is the actor's id.</param>
+        </member>
+        <member name="M:MyMoviesFF.Logic.IMovieMakeLogic.AddDirector(System.Int32,System.Int32)">
+            <summary>
+            Add a director to a movie.
+            </summary>
+            <param name="movieid">This is the movie's id.</param>
+            <param name="directorid">This is the director's id.</param>
+        </member>
+        <member name="M:MyMoviesFF.Logic.IMovieMakeLogic.RemoveActor(System.Int32,System.Int32)">
+            <summary>
+            Removes an actor from a movie.
+            </summary>
+            <param name="movieid">This is the movie's id.</param>
+            <param name="actorid">This is the actor's id.</param>
+        </member>
+        <member name="M:MyMoviesFF.Logic.IMovieMakeLogic.RemoveDirector(System.Int32,System.Int32)">
+            <summary>
+            Removes a director from a movie.
+            </summary>
+            <param name="movieid">This is the movie's id.</param>
+            <param name="directorid">This is the director's id.</param>
+        </member>
+        <member name="T:MyMoviesFF.Logic.IMovieMethods">
+            <summary>
+            Includes the crud and non-crud method definitions, which will be used by IActingLogic, and IMovieDirectLogic.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Logic.IMovieMethods.GetOneMovie(System.Int32)">
+            <summary>
+            Gets one movie.
+            </summary>
+            <param name="id">Specifies the movie id.</param>
+            <returns>Returns a movie object.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.IMovieMethods.GetAllMovies">
+            <summary>
+            Gets all movies from the database.
+            </summary>
+            <returns>Returns an IList collection of movies.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.IMovieMethods.ChangeIMDB(System.Int32,System.Int32)">
+            <summary>
+            Changes the imdb score of a specified movie object.
+            </summary>
+            <param name="id">Specifies the movie object.</param>
+            <param name="newimdb">This is the imdb score, which will be the new imdb score of a movie.</param>
+        </member>
+        <member name="M:MyMoviesFF.Logic.IMovieMethods.InsertNewMovie(System.String,System.Int32,System.String,System.Double,System.Int32)">
+            <summary>
+            Insert a new movie to the database.
+            </summary>
+            <param name="title">Movie title.</param>
+            <param name="year">Release year of the movie.</param>
+            <param name="genre">Movie's genre.</param>
+            <param name="imdb">Movie's imdb score.</param>
+            <param name="agelimit">Movie's age limit.</param>
+        </member>
+        <member name="M:MyMoviesFF.Logic.IMovieMethods.RemoveMovie(MyMoviesFF.Data.Movie)">
+            <summary>
+            Removes a movie from the database.
+            </summary>
+            <param name="entity">Specifies which movie should be removed.</param>
+            <returns>Returns whether the movie was successfully removed or not from the database.</returns>
+        </member>
+        <member name="T:MyMoviesFF.Logic.MovieDirectLogic">
+            <summary>
+            Implements the crud and non-crud methods from IMovieDirectLogic interface.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Logic.MovieDirectLogic.#ctor(MyMoviesFF.Repository.IMovieRepository,MyMoviesFF.Repository.IDirectorRepository,MyMoviesFF.Repository.IMovieDirectorRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MyMoviesFF.Logic.MovieDirectLogic"/> class.
+            </summary>
+            <param name="movierepo">Repository of movie.</param>
+            <param name="directorrepo">Repository of director.</param>
+            <param name="moviedirrepo">Repository of moviedirector.</param>
+        </member>
+        <member name="P:MyMoviesFF.Logic.MovieDirectLogic.DirectorRepo">
+            <summary>
+            Gets or sets the Director Repository.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Logic.MovieDirectLogic.MovieDirectRepo">
+            <summary>
+            Gets or sets the MovieDirectorRepository Repository.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Logic.MovieDirectLogic.MovieRepo">
+            <summary>
+            Gets or sets the Movie Repository.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Logic.MovieDirectLogic.AVGDirectorAge">
+            <summary>
+            Calculate the avarage age of the directors.
+            </summary>
+            <returns>Returns a double variable, which will be the avarage age of the directors.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.MovieDirectLogic.ChangeCountry(System.Int32,System.String)">
+            <summary>
+            This method changes the birth country of the actor.
+            </summary>
+            <param name="id">This is the directors id.</param>
+            <param name="newcountry">This is the birth country, which will be the new birth country of the director.</param>
+        </member>
+        <member name="M:MyMoviesFF.Logic.MovieDirectLogic.GetAllDirectors">
+            <summary>
+            Gets all directors from the database.
+            </summary>
+            <returns>Returns an IList collection of directors.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.MovieDirectLogic.GetDirectorCountPerCountries">
+            <summary>
+            Gets how many directors living in every country stored in the database.
+            </summary>
+            <returns>Returns an DirectorsCountPerCountries collection of the statistic.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.MovieDirectLogic.GetDirectorCountPerCountriesAsync">
+            <summary>
+             Async version of GetDirectorCountPerCountries method.
+            </summary>
+            <returns>Returns an Task IList collection of DirectorsCountPerCountries.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.MovieDirectLogic.GetOneDirector(System.Int32)">
+            <summary>
+            Gets one specified director.
+            </summary>
+            <param name="id">This is the id, which indicates the director.</param>
+            <returns> Returns a specified director.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.MovieDirectLogic.InsertNewDirector(System.String,System.Int32,System.Boolean,System.String,System.Int32)">
+            <summary>
+            Insert a new director to the database.
+            </summary>
+            <param name="directorName">Director name.</param>
+            <param name="movieCount">How many movies were directed by this director.</param>
+            <param name="gender">Director's gender.</param>
+            <param name="country">Director's birthplace.</param>
+            <param name="age">Director's age.</param>
+        </member>
+        <member name="M:MyMoviesFF.Logic.MovieDirectLogic.RemoveDirector(MyMoviesFF.Data.Director)">
+            <summary>
+            Removes a director from the database.
+            </summary>
+            <param name="entity">Specifies which director should be removed.</param>
+            <returns>Returns a bool whether the actor was successfully removed or not from the database.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.MovieDirectLogic.GetMoviesPerDirectors">
+            <summary>
+            Gets the directors and his/her movies.
+            </summary>
+            <returns>IList collection of MoviesPerDirectors.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.MovieDirectLogic.GetMoviesPerDirectorsAsync">
+            <summary>
+            Async version of GetMoviesPerDirectors method.
+            </summary>
+            <returns>Returns a Task IList collection of MoviesPerDirectors.</returns>
+        </member>
+        <member name="T:MyMoviesFF.Logic.MovieMakeLogic">
+            <summary>
+            Methods associated  with movie making.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Logic.MovieMakeLogic.#ctor(MyMoviesFF.Repository.IMovieRepository,MyMoviesFF.Repository.IMovieActorRepository,MyMoviesFF.Repository.IMovieDirectorRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MyMoviesFF.Logic.MovieMakeLogic"/> class.
+            </summary>
+            <param name="movierepo">Repository of movie.</param>
+            <param name="movieActor">Repository of movieactor.</param>
+            <param name="movieDirector">Repository of moviedirector.</param>
+        </member>
+        <member name="P:MyMoviesFF.Logic.MovieMakeLogic.MovieRepo">
+            <summary>
+            Gets or sets the Movie Repository.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Logic.MovieMakeLogic.MovieActorRepo">
+            <summary>
+            Gets or sets the MovieActor Repository.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Logic.MovieMakeLogic.MovieDirectorRepo">
+            <summary>
+            Gets or sets the MovieDirector Repository.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Logic.MovieMakeLogic.AddActor(System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MyMoviesFF.Logic.MovieMakeLogic.AddDirector(System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MyMoviesFF.Logic.MovieMakeLogic.GetActorsDirectorPerMovies">
+            <summary>
+            Gets the movies and it's actors, and directors.
+            </summary>
+            <returns>Returns an IList collection of ActorsDirectorsPerMovies.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.MovieMakeLogic.GetActorsDirectorPerMoviesAsync">
+            <summary>
+             Async version GetActorsDirectorPerMovies method.
+            </summary>
+            <returns>Returns a Task IList collection of ActorsDirectorsPerMovies.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.MovieMakeLogic.RemoveActor(System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MyMoviesFF.Logic.MovieMakeLogic.RemoveDirector(System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MyMoviesFF.Logic.MovieMethods">
+            <summary>
+            Implements IMovieMethods interface's methods.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Logic.MovieMethods.#ctor(MyMoviesFF.Repository.IMovieRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MyMoviesFF.Logic.MovieMethods"/> class.
+            </summary>
+            <param name="movieRepo"> Repository of movie.</param>
+        </member>
+        <member name="P:MyMoviesFF.Logic.MovieMethods.MovieRepo">
+            <summary>
+            Gets or sets the Movie Repository.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Logic.MovieMethods.ChangeIMDB(System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MyMoviesFF.Logic.MovieMethods.GetAllMovies">
+            <inheritdoc/>
+        </member>
+        <member name="M:MyMoviesFF.Logic.MovieMethods.GetOneMovie(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MyMoviesFF.Logic.MovieMethods.InsertNewMovie(System.String,System.Int32,System.String,System.Double,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MyMoviesFF.Logic.MovieMethods.RemoveMovie(MyMoviesFF.Data.Movie)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MyMoviesFF.Logic.MoviesPerDirectors">
+            <summary>
+             Stores the directors and their movies.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Logic.MoviesPerDirectors.DirectorName">
+            <summary>
+            Gets or sets the name of the director.
+            </summary>
+        </member>
+        <member name="P:MyMoviesFF.Logic.MoviesPerDirectors.Movies">
+            <summary>
+            Gets or sets the movies wich were directed by the current director.
+            </summary>
+        </member>
+        <member name="M:MyMoviesFF.Logic.MoviesPerDirectors.ToString">
+            <summary>
+            Director and movie datas.
+            </summary>
+            <returns>Returns a string of a director and his/her movies.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.MoviesPerDirectors.Equals(System.Object)">
+            <summary>
+            Determine whether a two MoviesPerDirectors object is equal or not.
+            </summary>
+            <param name="obj">Indicates the MoviesPerDirectors object, which will be compared to the caller object.</param>
+            <returns>Returns a bool whether two MoviesPerDirectors are the same or not.</returns>
+        </member>
+        <member name="M:MyMoviesFF.Logic.MoviesPerDirectors.GetHashCode">
+            <summary>
+            Determines the hash code of the MoviesPerDirectors object.
+            </summary>
+            <returns>Returns a hash code of the MoviesPerDirectors object.</returns>
+        </member>
+    </members>
+</doc>

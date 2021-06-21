@@ -1,0 +1,406 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MyMoviesWPF</name>
+    </assembly>
+    <members>
+        <member name="T:MyMoviesWPF.App">
+            <summary>
+            Interaction logic for App.xaml.
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:MyMoviesWPF.App.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MyMoviesWPF.App"/> class.
+            </summary>
+        </member>
+        <member name="M:MyMoviesWPF.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:MyMoviesWPF.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:MyMoviesWPF.BL.IMovieEditorService">
+            <summary>
+            This is the interface, which is used for movie editing.
+            </summary>
+        </member>
+        <member name="M:MyMoviesWPF.BL.IMovieEditorService.EditMovie(MyMoviesFF.Data.Movie)">
+            <summary>
+            Used for movie editing or adding.
+            </summary>
+            <param name="m"> Movie entity.</param>
+            <returns> Returns true if Edit movie was successful, otherwise returns false.</returns>
+        </member>
+        <member name="T:MyMoviesWPF.BL.IMovieLogic">
+            <summary>
+            Describe the logic for Movies table.
+            </summary>
+        </member>
+        <member name="M:MyMoviesWPF.BL.IMovieLogic.AddMovie(System.Collections.Generic.IList{MyMoviesFF.Data.Movie})">
+            <summary>
+            Adds a movie to a list, which will be appear in the UI.
+            </summary>
+            <param name="list">IList collection of movies.</param>
+        </member>
+        <member name="M:MyMoviesWPF.BL.IMovieLogic.DelMovie(System.Collections.Generic.IList{MyMoviesFF.Data.Movie},MyMoviesFF.Data.Movie@)">
+            <summary>
+            Deletes a movie from the database.
+            </summary>
+            <param name="list">IList collection of movies.</param>
+            <param name="movie">Movie entity.</param>
+        </member>
+        <member name="M:MyMoviesWPF.BL.IMovieLogic.ModMovie(MyMoviesFF.Data.Movie@)">
+            <summary>
+            Modifies the selected movie entity.
+            </summary>
+            <param name="movie">Movie entity.</param>
+        </member>
+        <member name="M:MyMoviesWPF.BL.IMovieLogic.GetAllMovies">
+            <summary>
+            Gets all movies from the database.
+            </summary>
+            <returns>Returns an IList collection of movies.</returns>
+        </member>
+        <member name="M:MyMoviesWPF.BL.IMovieLogic.GetAllActors">
+            <summary>
+            Gets all actors from the database.
+            </summary>
+            <returns>Returns an IList collection of actors.</returns>
+        </member>
+        <member name="M:MyMoviesWPF.BL.IMovieLogic.GetAllDirectors">
+            <summary>
+            Gets all directors from the database.
+            </summary>
+            <returns>Returns an IList collection of directors.</returns>
+        </member>
+        <member name="M:MyMoviesWPF.BL.IMovieLogic.AddActortoMovie(MyMoviesFF.Data.Movie@,System.Collections.Generic.IList{MyMoviesFF.Data.Actor},MyMoviesFF.Data.Actor)">
+            <summary>
+            Adds an actor to the selected movie.
+            </summary>
+            <param name="movie">Selected Movie entity.</param>
+            <param name="actors">IList collection of actors.</param>
+            <param name="actor">Actor entity, which will be added to the movie.</param>
+        </member>
+        <member name="M:MyMoviesWPF.BL.IMovieLogic.DelActorFromMovie(MyMoviesFF.Data.Movie@,System.Collections.Generic.IList{MyMoviesFF.Data.Actor},MyMoviesFF.Data.Actor)">
+            <summary>
+            Deletes an actor from the selected movie.
+            </summary>
+            <param name="movie">Selected Movie entity.</param>
+            <param name="actors">IList collection of actors.</param>
+            <param name="actor">Actor entity, which will be deleted from the movie.</param>
+        </member>
+        <member name="M:MyMoviesWPF.BL.IMovieLogic.AddDirectortoMovie(MyMoviesFF.Data.Movie@,System.Collections.Generic.IList{MyMoviesFF.Data.Director},MyMoviesFF.Data.Director)">
+            <summary>
+            Adds a director to the selected movie.
+            </summary>
+            <param name="movie">Selected Movie entity.</param>
+            <param name="directors">IList collection of directors.</param>
+            <param name="dir">Director entity, which will be added to the movie.</param>
+        </member>
+        <member name="M:MyMoviesWPF.BL.IMovieLogic.DelDirectorFromMovie(MyMoviesFF.Data.Movie@,System.Collections.Generic.IList{MyMoviesFF.Data.Director},MyMoviesFF.Data.Director)">
+            <summary>
+            Deletes a director from the selected movie.
+            </summary>
+            <param name="movie">Selected Movie entity.</param>
+            <param name="directors">IList collection of directors.</param>
+            <param name="dir">Director entity, which will be deleted from the movie.</param>
+        </member>
+        <member name="T:MyMoviesWPF.BL.MovieLogic">
+            <summary>
+            Implements IMovieLogic interface.
+            </summary>
+        </member>
+        <member name="M:MyMoviesWPF.BL.MovieLogic.#ctor(MyMoviesFF.Logic.IMovieDirectLogic,MyMoviesWPF.BL.IMovieEditorService,MyMoviesFF.Logic.IMovieMakeLogic,GalaSoft.MvvmLight.Messaging.IMessenger,MyMoviesFF.Logic.IActingLogic)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MyMoviesWPF.BL.MovieLogic"/> class.
+            </summary>
+            <param name="movieDirectLogic"> Instance of a class which implements IMovieDirectLogic interface.</param>
+            <param name="movieEditorService"> Instance of a class which implements MovieEditorService interface.</param>
+            <param name="movieMakeLogic"> Instance of a class which implements IMovieMakeLogic interface.</param>
+            <param name="messenger"> Instance of a class which implements IMessenger interface.</param>
+            <param name="actingLogic"> Instance of a class which implements IActingLogic interface.</param>
+        </member>
+        <member name="M:MyMoviesWPF.BL.MovieLogic.GetAllMovies">
+            <inheritdoc/>
+        </member>
+        <member name="M:MyMoviesWPF.BL.MovieLogic.AddMovie(System.Collections.Generic.IList{MyMoviesFF.Data.Movie})">
+            <inheritdoc/>
+        </member>
+        <member name="M:MyMoviesWPF.BL.MovieLogic.ModMovie(MyMoviesFF.Data.Movie@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MyMoviesWPF.BL.MovieLogic.DelMovie(System.Collections.Generic.IList{MyMoviesFF.Data.Movie},MyMoviesFF.Data.Movie@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MyMoviesWPF.BL.MovieLogic.GetAllActors">
+            <inheritdoc/>
+        </member>
+        <member name="M:MyMoviesWPF.BL.MovieLogic.GetAllDirectors">
+            <inheritdoc/>
+        </member>
+        <member name="M:MyMoviesWPF.BL.MovieLogic.AddActortoMovie(MyMoviesFF.Data.Movie@,System.Collections.Generic.IList{MyMoviesFF.Data.Actor},MyMoviesFF.Data.Actor)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MyMoviesWPF.BL.MovieLogic.DelActorFromMovie(MyMoviesFF.Data.Movie@,System.Collections.Generic.IList{MyMoviesFF.Data.Actor},MyMoviesFF.Data.Actor)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MyMoviesWPF.BL.MovieLogic.AddDirectortoMovie(MyMoviesFF.Data.Movie@,System.Collections.Generic.IList{MyMoviesFF.Data.Director},MyMoviesFF.Data.Director)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MyMoviesWPF.BL.MovieLogic.DelDirectorFromMovie(MyMoviesFF.Data.Movie@,System.Collections.Generic.IList{MyMoviesFF.Data.Director},MyMoviesFF.Data.Director)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MyMoviesWPF.MainWindow">
+            <summary>
+            Interaction logic for MainWindow.xaml.
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="M:MyMoviesWPF.MainWindow.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MyMoviesWPF.MainWindow"/> class.
+            </summary>
+        </member>
+        <member name="M:MyMoviesWPF.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:MyMoviesWPF.MoviesTable">
+            <summary>
+            Interaction logic for MoviesTable.xaml.
+            </summary>
+            <summary>
+            MoviesTable
+            </summary>
+        </member>
+        <member name="M:MyMoviesWPF.MoviesTable.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MyMoviesWPF.MoviesTable"/> class.
+            </summary>
+        </member>
+        <member name="M:MyMoviesWPF.MoviesTable.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:MyMoviesWPF.MyIoc">
+            <summary>
+            An Ioc class which inherits SimpleIoc, and IServiceLocator interface.
+            </summary>
+        </member>
+        <member name="P:MyMoviesWPF.MyIoc.Instance">
+            <summary>
+            Gets MyIoc instance.
+            </summary>
+        </member>
+        <member name="T:MyMoviesWPF.UI.AgeLimitToBrushConverter">
+            <summary>
+            Converter class for ageLimit to brush.
+            </summary>
+        </member>
+        <member name="M:MyMoviesWPF.UI.AgeLimitToBrushConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts an age to a colour.
+            </summary>
+            <param name="value">Value, which should be converted.</param>
+            <param name="targetType">Target type.</param>
+            <param name="parameter">Object parameter.</param>
+            <param name="culture">Culture info.</param>
+            <returns>Returns a colour.</returns>
+        </member>
+        <member name="M:MyMoviesWPF.UI.AgeLimitToBrushConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            It does nothing.
+            </summary>
+            <param name="value">Value,which should be converted back.</param>
+            <param name="targetType">Target type.</param>
+            <param name="parameter">Object paramter.</param>
+            <param name="culture">Culture info.</param>
+            <returns>Returns nothing.</returns>
+        </member>
+        <member name="T:MyMoviesWPF.UI.MovieEditorServiceViaWindow">
+            <summary>
+            Class which handles a movie entity editing via window.
+            </summary>
+        </member>
+        <member name="M:MyMoviesWPF.UI.MovieEditorServiceViaWindow.EditMovie(MyMoviesFF.Data.Movie)">
+            <summary>
+            Edits a movie.
+            </summary>
+            <param name="m">Movie entity, which will be edited.</param>
+            <returns>Returns false if the editing failed, otherwise returns true.</returns>
+        </member>
+        <member name="T:MyMoviesWPF.UI.MovieEditorWindow">
+            <summary>
+            Interaction logic for MovieEditorWindow.xaml.
+            </summary>
+            <summary>
+            MovieEditorWindow
+            </summary>
+        </member>
+        <member name="M:MyMoviesWPF.UI.MovieEditorWindow.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MyMoviesWPF.UI.MovieEditorWindow"/> class.
+            </summary>
+        </member>
+        <member name="M:MyMoviesWPF.UI.MovieEditorWindow.#ctor(MyMoviesFF.Data.Movie)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MyMoviesWPF.UI.MovieEditorWindow"/> class.
+            </summary>
+            <param name="m">Movie entity, which will be edited.</param>
+        </member>
+        <member name="P:MyMoviesWPF.UI.MovieEditorWindow.Movie">
+            <summary>
+            Gets the movie entity, which is selected for editing.
+            </summary>
+        </member>
+        <member name="M:MyMoviesWPF.UI.MovieEditorWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:MyMoviesWPF.VM.MainViewModel">
+            <summary>
+            ViewModel class for MainWindow.
+            </summary>
+        </member>
+        <member name="M:MyMoviesWPF.VM.MainViewModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MyMoviesWPF.VM.MainViewModel"/> class.
+            </summary>
+        </member>
+        <member name="T:MyMoviesWPF.VM.MovieEditorViewModel">
+            <summary>
+            ViewModel class for the Movie editor window.
+            </summary>
+        </member>
+        <member name="M:MyMoviesWPF.VM.MovieEditorViewModel.#ctor(MyMoviesWPF.BL.IMovieLogic)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MyMoviesWPF.VM.MovieEditorViewModel"/> class.
+            </summary>
+            <param name="movieLogic">Instance of a class, which implements IMovieLogic interface.</param>
+        </member>
+        <member name="M:MyMoviesWPF.VM.MovieEditorViewModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MyMoviesWPF.VM.MovieEditorViewModel"/> class.
+            </summary>
+        </member>
+        <member name="P:MyMoviesWPF.VM.MovieEditorViewModel.Movie">
+            <summary>
+            Gets or sets the selected Movie entity.
+            </summary>
+        </member>
+        <member name="P:MyMoviesWPF.VM.MovieEditorViewModel.Actors">
+            <summary>
+            Gets or sets the actors ObservableCollection, which stores the actors in the selected movie.
+            </summary>
+        </member>
+        <member name="P:MyMoviesWPF.VM.MovieEditorViewModel.Directors">
+            <summary>
+            Gets or sets the directors ObservableCollection, which stores the actors in the selected movie.
+            </summary>
+        </member>
+        <member name="P:MyMoviesWPF.VM.MovieEditorViewModel.ActorCur">
+            <summary>
+            Gets or sets the selected Actor entity, which belongs to the current movie.
+            </summary>
+        </member>
+        <member name="P:MyMoviesWPF.VM.MovieEditorViewModel.DirectorCur">
+            <summary>
+            Gets or sets the selected Director entity, which belongs to the current movie.
+            </summary>
+        </member>
+        <member name="P:MyMoviesWPF.VM.MovieEditorViewModel.AllActors">
+            <summary>
+            Gets or sets the IList collection of actors, which containt all the actors of the database.
+            </summary>
+        </member>
+        <member name="P:MyMoviesWPF.VM.MovieEditorViewModel.AllDirectors">
+            <summary>
+             Gets or sets the IList collection of directors, which containt all the directors of the database.
+            </summary>
+        </member>
+        <member name="P:MyMoviesWPF.VM.MovieEditorViewModel.ActorA">
+            <summary>
+            Gets or sets the Actor entity, which is one of the actors stored in the database.
+            </summary>
+        </member>
+        <member name="P:MyMoviesWPF.VM.MovieEditorViewModel.DirectorA">
+            <summary>
+            Gets or sets the Director entity, which is one of the directors stored in the database.
+            </summary>
+        </member>
+        <member name="P:MyMoviesWPF.VM.MovieEditorViewModel.AddActorcmd">
+            <summary>
+            Gets the Add actor to a movie command.
+            </summary>
+        </member>
+        <member name="P:MyMoviesWPF.VM.MovieEditorViewModel.DelActorcmd">
+            <summary>
+            Gets the Delete actor from a movie command.
+            </summary>
+        </member>
+        <member name="P:MyMoviesWPF.VM.MovieEditorViewModel.AddDircmd">
+            <summary>
+            Gets the Add director to a movie command.
+            </summary>
+        </member>
+        <member name="P:MyMoviesWPF.VM.MovieEditorViewModel.DelDircmd">
+            <summary>
+            Gets the Delete director from a movie command.
+            </summary>
+        </member>
+        <member name="T:MyMoviesWPF.VM.MoviesTableViewModel">
+            <summary>
+            ViewModel class for the Movie table usercontrol.
+            </summary>
+        </member>
+        <member name="M:MyMoviesWPF.VM.MoviesTableViewModel.#ctor(MyMoviesWPF.BL.IMovieLogic)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MyMoviesWPF.VM.MoviesTableViewModel"/> class.
+            </summary>
+            <param name="movieLogic"> Instance of a class, which implements IMovieLogic interface.</param>
+        </member>
+        <member name="M:MyMoviesWPF.VM.MoviesTableViewModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MyMoviesWPF.VM.MoviesTableViewModel"/> class.
+            </summary>
+        </member>
+        <member name="P:MyMoviesWPF.VM.MoviesTableViewModel.Movies">
+            <summary>
+            Gets  ObservableCollection of movies.
+            </summary>
+        </member>
+        <member name="P:MyMoviesWPF.VM.MoviesTableViewModel.Addcmd">
+            <summary>
+            Gets Movie add command.
+            </summary>
+        </member>
+        <member name="P:MyMoviesWPF.VM.MoviesTableViewModel.Delcmd">
+            <summary>
+            Gets Movie delete command.
+            </summary>
+        </member>
+        <member name="P:MyMoviesWPF.VM.MoviesTableViewModel.Modcmd">
+            <summary>
+            Gets Movie edit command.
+            </summary>
+        </member>
+        <member name="P:MyMoviesWPF.VM.MoviesTableViewModel.OneMovie">
+            <summary>
+            Gets or sets the selected movie from the MainWindow.
+            </summary>
+        </member>
+    </members>
+</doc>

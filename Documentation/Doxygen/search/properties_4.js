@@ -1,0 +1,5 @@
+var searchData=
+[
+  ['gender_536',['Gender',['../class_my_movies_f_f_1_1_console_client_1_1_actor.html#ab38a5ec608945f1813dd81d3727a0547',1,'MyMoviesFF.ConsoleClient.Actor.Gender()'],['../class_my_movies_f_f_1_1_data_1_1_actor.html#a7e3f169ff8b82dae72d916e31ce496cb',1,'MyMoviesFF.Data.Actor.Gender()'],['../class_my_movies_f_f_1_1_data_1_1_director.html#a8ef074909e985dbfbe083e51be94a9f0',1,'MyMoviesFF.Data.Director.Gender()'],['../class_my_movies_f_f_1_1_web_1_1_models_1_1_actor.html#a233e9ef530a1b927216823d145dd52c8',1,'MyMoviesFF.Web.Models.Actor.Gender()'],['../class_my_movies_f_f_1_1_wpf_client_1_1_data_1_1_actor_from_api.html#a865d063dcb1dc904e18138ff51494fb5',1,'MyMoviesFF.WpfClient.Data.ActorFromApi.Gender()'],['../class_my_movies_f_f_1_1_wpf_client_1_1_v_m_1_1_actor_v_m.html#a8a72fd64503f236a8d73400ac27fb579',1,'MyMoviesFF.WpfClient.VM.ActorVM.Gender()']]],
+  ['genre_537',['Genre',['../class_my_movies_f_f_1_1_data_1_1_movie.html#a53b1124b054baec435c10e81fc15d260',1,'MyMoviesFF::Data::Movie']]]
+];
